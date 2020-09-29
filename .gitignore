@@ -1,0 +1,8 @@
+vendor
+wp-content
+composer.lock
+node_modules/
+.env
+dist/
+*.ai
+documentation/

@@ -1,0 +1,35 @@
+.site-header {
+  grid-column: 1 / 13;
+  padding-bottom: 10vh;
+  text-align: center;
+  // background-image: url('./assets/hero.jpg');
+  background-size: 50%;
+  background-repeat: no-repeat;
+  background-position: right;
+
+  .home & {
+    padding-top: 20vh;
+    padding-bottom: 20vh;
+  }
+}
+
+.site-title {
+  mix-blend-mode: multiply;
+  font-family: $times;
+  padding: 0.1em 1em;
+  border: 1px solid black;
+  border-radius: 2rem;
+  font-size: var(--ms-0);
+  display: inline-block;
+  .home & {
+    font-size: var(--ms-2);
+  }
+  a {
+    font-weight: 500;
+    text-decoration: none;
+  }
+}
+
+.site-footer {
+  grid-column: 1 / 13;
+}

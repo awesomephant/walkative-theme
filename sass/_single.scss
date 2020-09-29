@@ -1,0 +1,40 @@
+.article {
+  grid-column: 1 / 13;
+  @include bp(m){
+    grid-column: 2 / 10;
+  }
+  max-width: 32em;
+}
+
+.article-title {
+  font-size: var(--ms-1);
+  font-weight: 600;
+  line-height: 1.1;
+  font-family: $sans;
+  @include bp(m){
+    font-size: var(--ms-2);
+  }
+}
+
+.article-thumbnail {
+  display: block;
+  margin-bottom: 1rem;
+}
+
+.article-intro {
+  font-size: var(--ms-1);
+  @include bp(m){
+    font-size: var(--ms-2);
+  }
+}
+.article-content {
+  hyphens: auto;
+  letter-spacing: .01em;
+}
+
+.article-meta {
+  font-family: $sans;
+  font-size: var(--ms--1);
+  padding-top: 2rem;
+  margin-bottom: 2rem;
+}

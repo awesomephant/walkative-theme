@@ -1,0 +1,138 @@
+/*!
+Theme Name: Walkative 2020
+Author: Max Kohler (@maxakohler)
+Author URI: http://maxkoehler.com/
+Description: Custom theme for the Walkative Society. Required plugins: Timber Library
+Version: 1.0
+License: All rights reserved
+*/
+:root {
+  --fast: 250ms;
+  --ratio: 1.25;
+  --ms--1: calc(var(--ms-0) / var(--ratio));
+  --ms-0: clamp(1.1rem, 2.53vw, 1.45rem);
+  --ms-1: calc(var(--ms-0) * var(--ratio));
+  --ms-2: calc(var(--ms-1) * var(--ratio));
+  --ms-3: calc(var(--ms-2) * var(--ratio));
+  --ms-4: calc(var(--ms-3) * var(--ratio));
+  --ms-5: calc(var(--ms-4) * var(--ratio));
+  --ms-6: calc(var(--ms-5) * var(--ratio)); }
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font-weight: normal;
+  font-family: inherit; }
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0; }
+
+a {
+  color: inherit;
+  text-decoration: underline; }
+  a:hover, a:focus {
+    text-decoration: none; }
+
+body {
+  font-family: var(--sans);
+  font-size: var(--ms-0);
+  background-color: #fdfdfd;
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  color: #070707;
+  padding: 5%;
+  display: grid;
+  grid-template-columns: repeat(12, 1fr); }
+
+.site-header {
+  grid-column: 1 / 13;
+  padding-bottom: 10vh;
+  text-align: center;
+  background-size: 50%;
+  background-repeat: no-repeat;
+  background-position: right; }
+  .home .site-header {
+    padding-top: 20vh;
+    padding-bottom: 20vh; }
+
+.site-title {
+  mix-blend-mode: multiply;
+  font-family: "Times New Roman", Times, serif;
+  padding: 0.1em 1em;
+  border: 1px solid black;
+  border-radius: 2rem;
+  font-size: var(--ms-0);
+  display: inline-block; }
+  .home .site-title {
+    font-size: var(--ms-2); }
+  .site-title a {
+    font-weight: 500;
+    text-decoration: none; }
+
+.site-footer {
+  grid-column: 1 / 13; }
+
+.home-sections {
+  grid-column: 1 / 13;
+  display: flex;
+  width: 100%; }
+
+.home-sections-nav {
+  display: flex;
+  margin-bottom: 1rem; }
+  .home-sections-nav button {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    background: none;
+    margin-right: 1rem;
+    font-size: var(--ms-1); }
+
+.home-section {
+  flex-grow: 1;
+  width: 100vw; }
+
+.post-list-item {
+  border-bottom: 1px solid black; }
+
+.article {
+  grid-column: 1 / 13;
+  max-width: 32em; }
+  @media (min-width: 800px) {
+    .article {
+      grid-column: 2 / 10; } }
+
+.article-title {
+  font-size: var(--ms-1);
+  font-weight: 600;
+  line-height: 1.1;
+  font-family: "MD System Test", "Arial", sans-serif; }
+  @media (min-width: 800px) {
+    .article-title {
+      font-size: var(--ms-2); } }
+
+.article-thumbnail {
+  display: block;
+  margin-bottom: 1rem; }
+
+.article-intro {
+  font-size: var(--ms-1); }
+  @media (min-width: 800px) {
+    .article-intro {
+      font-size: var(--ms-2); } }
+
+.article-content {
+  -webkit-hyphens: auto;
+  -ms-hyphens: auto;
+  hyphens: auto;
+  letter-spacing: .01em; }
+
+.article-meta {
+  font-family: "MD System Test", "Arial", sans-serif;
+  font-size: var(--ms--1);
+  padding-top: 2rem;
+  margin-bottom: 2rem; }

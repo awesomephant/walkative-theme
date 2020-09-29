@@ -1,0 +1,14 @@
+{% block content %}
+{% if post.thumbnail.src %}
+<a href="{{post.link}}">
+	<picture class="article-thumbnail">
+		<source srcset="{{ post.thumbnail.src|resize(400)|towebp }}" type="image/webp">
+		<source srcset="{{ post.thumbnail.src|resize(400)|tojpg }}" type="image/jpeg">
+		<img src="{{ post.thumbnail.src|resize(400)|tojpg }}" alt="{{ post.title }}">
+	</picture>
+</a>
+{% endif %}
+<h2 class="h2"><a href="{{post.link}}">{{ post.title }}</a></h2>
+<p>{{ post.excerpt({ words:5, read_more: "Keep reading" }) }}</p>
+
+{% endblock %}

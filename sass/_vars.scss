@@ -1,0 +1,42 @@
+@mixin bp($point) {
+    @if $point==xl {
+        @media (min-width: 1850px) {
+            @content;
+        }
+    }
+
+    @else if $point==l {
+        @media (min-width: 1400px) {
+            @content;
+        }
+    }
+
+    @else if $point==m {
+        @media (min-width: 800px) {
+            @content;
+        }
+    }
+
+    @else if $point==s {
+        @media (min-width: 500px) {
+            @content;
+        }
+    }
+}
+
+$green: rgb(0, 114, 0);
+$times: 'Times New Roman', Times, serif;
+$sans: "MD System Test", "Arial", sans-serif;
+
+:root {
+    --fast: 250ms;
+    --ratio: 1.25; // Major 3
+    --ms--1: calc(var(--ms-0) / var(--ratio));
+    --ms-0: clamp(1.1rem, 2.53vw, 1.45rem);
+    --ms-1: calc(var(--ms-0) * var(--ratio));
+    --ms-2: calc(var(--ms-1) * var(--ratio));
+    --ms-3: calc(var(--ms-2) * var(--ratio));
+    --ms-4: calc(var(--ms-3) * var(--ratio));
+    --ms-5: calc(var(--ms-4) * var(--ratio));
+    --ms-6: calc(var(--ms-5) * var(--ratio));
+}

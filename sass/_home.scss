@@ -1,0 +1,24 @@
+.home-sections {
+  grid-column: 1 / 13;
+  display: flex;
+  width: 100%;
+}
+
+.home-sections-nav {
+  display: flex;
+  margin-bottom: 1rem;
+  button {
+    appearance: none;
+    background: none;
+    margin-right: 1rem;
+    font-size: var(--ms-1);
+  }
+}
+.home-section {
+  flex-grow: 1;
+  width: 100vw;
+}
+
+.post-list-item {
+  border-bottom: 1px solid black;
+}

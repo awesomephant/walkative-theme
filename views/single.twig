@@ -1,0 +1,24 @@
+{% extends "base.twig" %}
+
+{% block content %}
+<article class="post-type-{{ post.post_type }} article" id="post-{{ post.ID }}">
+
+	<picture class="article-thumbnail">
+		<source srcset="{{ post.thumbnail.src|resize(800)|towebp }}" type="image/webp">
+		<source srcset="{{ post.thumbnail.src|resize(800)|tojpg }}" type="image/jpeg">
+		<img src="{{ post.thumbnail.src|resize(800)|tojpg }}" alt="{{ post.title }}">
+	</picture>
+
+	<h2 class="article-title">{{ post.title }}</h2>
+	{% if post.subtitle %}
+	<p class="article-intro">{{post.subtitle}}</p>
+	{% endif %}
+	<aside class="article-meta">
+		<span>By</span><a href="{{post.author.path}}"> {{ post.author.name }} </a><span>&bull;</span> <time
+			datetime="{{ post.date|date('Y-m-d H:i:s') }}">{{ post.date }}</time>
+	</aside>
+	<main class="article-content">
+		{{post.content}}
+	</main>
+</article>
+{% endblock %}

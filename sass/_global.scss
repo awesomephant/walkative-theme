@@ -1,0 +1,35 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font-weight: normal;
+  font-family: inherit;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+a {
+  color: inherit;
+  text-decoration: underline;
+  &:hover,
+  &:focus {
+    text-decoration: none;
+  }
+}
+
+body {
+  font-family: var(--sans);
+  font-size: var(--ms-0);
+  background-color: rgb(253, 253, 253);
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  color: rgb(7, 7, 7);
+  padding: 5%;
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+}

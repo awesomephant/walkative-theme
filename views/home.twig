@@ -1,0 +1,28 @@
+{% extends "base.twig" %}
+
+{% block content %}
+
+
+<nav class="home-sections-nav">
+    <button>Walks</button>
+    <button>Blog</button>
+</nav>
+<section class="home-sections">
+    <section class="home-section walks">
+        {% for post in walks %}
+        <article class="post-list-item">
+            {% include '/partial/tease-walk.twig' %}
+        </article>
+        {% endfor %}
+    </section>
+
+    <section class="home-section posts">
+        {% for post in posts %}
+        <article class="post-list-item">
+            {% include '/partial/tease-post.twig' %}
+        </article>
+        {% endfor %}
+    </section>
+</section>
+
+{% endblock %}

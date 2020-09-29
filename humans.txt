@@ -1,0 +1,10 @@
+## Team
+
+Max Kohler
+https://maxkoehler.com
+@maxakohler
+
+
+## Site
+
+Software: Built with [Timber](http://upstatement.com/timber) by Upstatement

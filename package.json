@@ -1,0 +1,21 @@
+{
+  "name": "rk-theme",
+  "private": true,
+  "author": "Max Kohler",
+  "scripts": {
+    "start": "gulp",
+    "build": "gulp build",
+    "deploy": "gulp deploy"
+  },
+  "devDependencies": {},
+  "dependencies": {
+    "browser-sync": "^2.26.12",
+    "gulp": "^4.0.2",
+    "gulp-autoprefixer": "^7.0.1",
+    "gulp-sass": "^4.1.0",
+    "gulp-util": "^3.0.8",
+    "node-sass": "^4.14.1",
+    "vinyl-named": "^1.1.0",
+    "webpack-stream": "^5.2.1"
+  }
+}
