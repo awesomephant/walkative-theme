@@ -2,12 +2,13 @@
 
 {% block content %}
 <article class="post-type-{{ post.post_type }} article" id="post-{{ post.ID }}">
-
+	{% if post.thumbnail.src %}
 	<picture class="article-thumbnail">
 		<source srcset="{{ post.thumbnail.src|resize(800)|towebp }}" type="image/webp">
 		<source srcset="{{ post.thumbnail.src|resize(800)|tojpg }}" type="image/jpeg">
 		<img src="{{ post.thumbnail.src|resize(800)|tojpg }}" alt="{{ post.title }}">
 	</picture>
+	{% endif %}
 
 	<h2 class="article-title">{{ post.title }}</h2>
 	{% if post.subtitle %}

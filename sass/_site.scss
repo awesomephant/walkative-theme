@@ -6,30 +6,45 @@
   background-size: 50%;
   background-repeat: no-repeat;
   background-position: right;
+  position: relative;
+  svg {
+    position: absolute;
+    pointer-events: none;
+    width: 120vw;
+    top: -10vw;
+    left: -10vw;
+    mix-blend-mode: multiply;
+    path {
+      fill: rgb(15,15,15);
+    }
+  }
 
   .home & {
-    padding-top: 20vh;
-    padding-bottom: 20vh;
+    padding-top: 15vh;
+    padding-bottom: 15vh;
   }
 }
 
 .site-title {
   mix-blend-mode: multiply;
-  font-family: $times;
+  font-family: $sans;
   padding: 0.1em 1em;
   border: 1px solid black;
-  border-radius: 2rem;
+  border-radius: .5rem;
   font-size: var(--ms-0);
   display: inline-block;
   .home & {
     font-size: var(--ms-2);
   }
   a {
-    font-weight: 500;
+    font-weight: 600;
     text-decoration: none;
   }
 }
 
 .site-footer {
   grid-column: 1 / 13;
+  font-family: $sans;
+  padding-top: 4rem;
+  font-size: var(--ms--1);
 }

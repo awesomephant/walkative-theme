@@ -8,7 +8,7 @@
 	</picture>
 </a>
 {% endif %}
-<h2 class="h2"><a href="{{post.link}}">{{ post.title }}</a></h2>
-<p>{{ post.excerpt({ words:5, read_more: "Keep reading" }) }}</p>
+<a class='post-list-title' href="{{post.link}}"><h3>{{ post.title }}</h3></a>
+<p class='post-list-subtitle'>{{ post.subtitle }}</p>
 
 {% endblock %}
