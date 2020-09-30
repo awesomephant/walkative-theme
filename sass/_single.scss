@@ -17,11 +17,18 @@
 .article-thumbnail {
   display: block;
   margin-bottom: 1rem;
+  grid-column: 1 / 13;
+  display: flex;
+  justify-content: center;
+  img {
+
+  }
 }
 
 .article-intro {
-  grid-column: 5 / 9;
+  grid-column: 4 / 10;
   font-size: var(--ms-1);
+  text-align: center;
   @include bp(m) {
     font-size: var(--ms-2);
   }
@@ -51,12 +58,10 @@
   }
   p {
     grid-column: 4 / 10;
+    margin-bottom: .8em;
     @include bp(l) {
       grid-column: 5 / 9;
     }
-  }
-  p + p {
-    text-indent: 5em;
   }
   img {
     display: block;
@@ -73,20 +78,26 @@
     grid-column: 4 / 11;
     font-weight: bold;
     font-family: $sans;
-    margin-bottom: 1rem;
-    margin-top: 1rem;
+    margin-bottom: 1.5em;
+    margin-top: 1em;
     font-style: normal;
-    font-size: var(--ms--1);
+    font-size: var(--ms-0);
     em {
       font-style: normal;
     }
     cite {
+      font-size: var(--ms--1);
+      font-style: normal;
       font-weight: normal;
-      display: inline;
+      display: block;
+      margin-top: -.5em;
     }
     grid-column: 4 / 10;
+    @include bp(m) {
+      grid-column: 3 / 9;
+    }
     @include bp(l) {
-      grid-column: 5 / 9;
+      grid-column: 4 / 9;
     }
   }
   .wp-block-verse {
@@ -165,5 +176,13 @@
       font-size: var(--ms--1);
       line-height: 1.1;
     }
+  }
+}
+
+.post-authors {
+  list-style: none;
+  font-weight: normal;
+  .name {
+    font-weight: 600;
   }
 }

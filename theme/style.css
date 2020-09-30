@@ -47,7 +47,10 @@ body {
   padding: 2%;
   display: grid;
   font-family: "Georgia", sans-serif;
-  grid-template-columns: repeat(12, 1fr); }
+  grid-template-columns: repeat(12, 1fr);
+  padding-top: 10rem; }
+  body.home {
+    padding-top: 40vh; }
 
 .site-header {
   grid-column: 1 / 13;
@@ -56,14 +59,17 @@ body {
   background-size: 50%;
   background-repeat: no-repeat;
   background-position: right;
-  position: relative; }
+  position: fixed;
+  top: 2rem;
+  left: 0;
+  width: 100%;
+  color: black; }
   .site-header svg {
     position: absolute;
     pointer-events: none;
     width: 120vw;
     top: -10vw;
-    left: -10vw;
-    mix-blend-mode: multiply; }
+    left: -10vw; }
     .site-header svg path {
       fill: #0f0f0f; }
   .home .site-header {
@@ -74,8 +80,8 @@ body {
   mix-blend-mode: multiply;
   font-family: "MD System Test", "Arial", sans-serif;
   padding: 0.1em 1em;
-  border: 1px solid black;
-  border-radius: .5rem;
+  border: 3px solid currentColor;
+  border-radius: 2rem;
   font-size: var(--ms-0);
   display: inline-block; }
   .home .site-title {
@@ -123,9 +129,8 @@ body {
 
 .post-list-item {
   border-bottom: 1px solid black;
-  padding: .5rem; }
-  .post-list-item img {
-    filter: grayscale(1); }
+  padding: .5rem;
+  text-align: center; }
 
 .post-list-title {
   font-family: "MD System Test", "Arial", sans-serif;
@@ -137,7 +142,9 @@ body {
 
 .post-list-meta {
   font-family: "MD System Test", "Arial", sans-serif;
-  font-size: var(--ms--1); }
+  font-size: var(--ms--1);
+  text-align: center;
+  margin-bottom: 1rem; }
 
 .article {
   display: contents; }
@@ -155,11 +162,15 @@ body {
 
 .article-thumbnail {
   display: block;
-  margin-bottom: 1rem; }
+  margin-bottom: 1rem;
+  grid-column: 1 / 13;
+  display: flex;
+  justify-content: center; }
 
 .article-intro {
-  grid-column: 5 / 9;
-  font-size: var(--ms-1); }
+  grid-column: 4 / 10;
+  font-size: var(--ms-1);
+  text-align: center; }
   @media (min-width: 800px) {
     .article-intro {
       font-size: var(--ms-2); } }
@@ -189,12 +200,11 @@ body {
   .article-content h6 {
     grid-column: 2 / 10; }
   .article-content p {
-    grid-column: 4 / 10; }
+    grid-column: 4 / 10;
+    margin-bottom: .8em; }
     @media (min-width: 1400px) {
       .article-content p {
         grid-column: 5 / 9; } }
-  .article-content p + p {
-    text-indent: 5em; }
   .article-content img {
     display: block;
     height: auto;
@@ -209,19 +219,25 @@ body {
     grid-column: 4 / 11;
     font-weight: bold;
     font-family: "MD System Test", "Arial", sans-serif;
-    margin-bottom: 1rem;
-    margin-top: 1rem;
+    margin-bottom: 1.5em;
+    margin-top: 1em;
     font-style: normal;
-    font-size: var(--ms--1);
+    font-size: var(--ms-0);
     grid-column: 4 / 10; }
     .article-content .wp-block-quote em {
       font-style: normal; }
     .article-content .wp-block-quote cite {
+      font-size: var(--ms--1);
+      font-style: normal;
       font-weight: normal;
-      display: inline; }
+      display: block;
+      margin-top: -.5em; }
+    @media (min-width: 800px) {
+      .article-content .wp-block-quote {
+        grid-column: 3 / 9; } }
     @media (min-width: 1400px) {
       .article-content .wp-block-quote {
-        grid-column: 5 / 9; } }
+        grid-column: 4 / 9; } }
   .article-content .wp-block-verse {
     grid-column: 3 / 11;
     font-size: var(--ms-1);
@@ -286,3 +302,9 @@ body {
       letter-spacing: 0.02em;
       font-size: var(--ms--1);
       line-height: 1.1; }
+
+.post-authors {
+  list-style: none;
+  font-weight: normal; }
+  .post-authors .name {
+    font-weight: 600; }

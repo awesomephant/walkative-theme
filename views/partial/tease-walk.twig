@@ -1,4 +1,9 @@
 {% block content %}
+
+<div class="post-list-meta">
+	{{post.start_date | date("l M d Y, G:i")}}–{{post.end_date | date("G:i")}}
+</div>
+
 {% if post.thumbnail.src %}
 <a href="{{post.link}}">
 	<picture class="article-thumbnail">
@@ -8,7 +13,9 @@
 	</picture>
 </a>
 {% endif %}
-<a class='post-list-title' href="{{post.link}}"><h3>{{ post.title }}</h3></a>
+<a class='post-list-title' href="{{post.link}}">
+	<h3>{{ post.title }}</h3>
+</a>
 <p class='post-list-subtitle'>{{ post.subtitle }}</p>
 
 {% endblock %}

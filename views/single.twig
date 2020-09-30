@@ -15,8 +15,26 @@
 	<p class="article-intro">{{post.subtitle}}</p>
 	{% endif %}
 	<aside class="article-meta">
+		{% if post.authors %}
+		<ul class="post-authors">
+			{% for author in post.meta('authors') %}
+			<li>
+				{% set people = author.name|split(',')%}
+				{% if people | length == 1%}
+				<span class='role'>{{author.role}} by</span> <span class="name">{{people[0]}}</span>
+				{% elseif people | length == 2%}
+				<span class='role'>{{author.role}} by</span> <span class='name'>{{people[0]}}</span> and <span
+					class="name">{{people[1]}}</span>
+				{% elseif people | length > 2%}
+				{{author.role}} by {% for p in people %}{{p}},{%endfor%}
+				{% endif %}
+			</li>
+			{% endfor %}
+		</ul>
+		{% else %}
 		<span>By</span><a href="{{post.author.path}}"> {{ post.author.name }} </a><span>&bull;</span> <time
 			datetime="{{ post.date|date('Y-m-d H:i:s') }}">{{ post.date }}</time>
+		{%endif%}
 	</aside>
 	<main class="article-content">
 		{{post.content}}

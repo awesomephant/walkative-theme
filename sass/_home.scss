@@ -35,8 +35,8 @@
 .post-list-item {
   border-bottom: 1px solid black;
   padding: .5rem;
+  text-align: center;
   img {
-    filter: grayscale(1);
   }
 }
 
@@ -52,4 +52,6 @@
 .post-list-meta {
   font-family: $sans;
   font-size: var(--ms--1);
+  text-align: center;
+  margin-bottom: 1rem;
 }
