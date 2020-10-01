@@ -29,12 +29,11 @@ body {
   background-repeat: no-repeat;
   background-size: 100% 100%;
   color: rgb(7, 7, 7);
-  padding: 2%;
   display: grid;
   font-family: $serif;
   grid-template-columns: repeat(12, 1fr);
-  padding-top: 10rem;
+  padding-top: 6rem;
   &.home {
-    padding-top: 40vh;
+    padding-top: 0;
   }
 }

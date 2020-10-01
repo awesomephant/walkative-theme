@@ -1,17 +1,20 @@
 {% block content %}
 {% if post.thumbnail.src %}
-
-<a href="{{post.link}}">
-<picture class="article-thumbnail">
-	<source srcset="{{ post.thumbnail.src|resize(400)|towebp }}" type="image/webp">
-	<source srcset="{{ post.thumbnail.src|resize(400)|tojpg }}" type="image/jpeg">
-	<img src="{{ post.thumbnail.src|resize(400)|tojpg }}" alt="{{ post.title }}">
-</picture>
+<a class="post-list-thumbnail" href="{{post.link}}">
+	<picture>
+		<source srcset="{{ post.thumbnail.src|resize(400)|towebp }}" type="image/webp">
+		<source srcset="{{ post.thumbnail.src|resize(400)|tojpg }}" type="image/jpeg">
+		<img src="{{ post.thumbnail.src|resize(400)|tojpg }}" alt="{{ post.title }}">
+	</picture>
 </a>
 {% endif %}
-<a class='post-list-title' href="{{post.link}}">
-	<h3>{{ post.title }}</h3>
-</a>
-<p class='post-list-subtitle'>{{ post.excerpt }}</p>
+
 <span class='post-list-meta'>{{ post.date }}</span>
+
+<div class="post-list-info">
+	<a class='post-list-title' href="{{post.link}}">
+		<h3>{{ post.title }}</h3>
+	</a>
+	<p class='post-list-subtitle'>{{ post.excerpt }}</p>
+</div>
 {% endblock %}

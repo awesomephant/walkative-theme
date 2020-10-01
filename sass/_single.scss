@@ -16,12 +16,13 @@
 
 .article-thumbnail {
   display: block;
-  margin-bottom: 1rem;
+  margin-bottom: 2rem;
   grid-column: 1 / 13;
   display: flex;
   justify-content: center;
   img {
-
+    max-height: 70vh;
+    width: auto;
   }
 }
 
@@ -59,7 +60,7 @@
   p {
     grid-column: 4 / 10;
     margin-bottom: .8em;
-    @include bp(l) {
+    @include bp(xl) {
       grid-column: 5 / 9;
     }
   }
@@ -75,13 +76,20 @@
     }
   }
   .wp-block-quote {
-    grid-column: 4 / 11;
     font-weight: bold;
     font-family: $sans;
     margin-bottom: 1.5em;
     margin-top: 1em;
     font-style: normal;
     font-size: var(--ms-0);
+    grid-column: 4 / 10;
+    line-height: 1.19;
+    @include bp(m) {
+      grid-column: 4 / 10;
+    }
+    @include bp(l) {
+      grid-column: 4 / 9;
+    }
     em {
       font-style: normal;
     }
@@ -91,13 +99,6 @@
       font-weight: normal;
       display: block;
       margin-top: -.5em;
-    }
-    grid-column: 4 / 10;
-    @include bp(m) {
-      grid-column: 3 / 9;
-    }
-    @include bp(l) {
-      grid-column: 4 / 9;
     }
   }
   .wp-block-verse {
@@ -129,10 +130,9 @@
   }
   .wp-block-gallery {
     display: grid;
-    background: rgb(8, 8, 8);
+    background: rgb(214, 214, 214);
     grid-column: 1 / 13;
-    margin-left: -2.1%;
-    width: 104.2%;
+    width: 100%;
     padding: 2%;
     grid-template-columns: 1fr 1fr;
     column-gap: 2%;
@@ -169,7 +169,7 @@
       list-style: none;
     }
     figcaption {
-      color: lightgray;
+      color: rgb(0, 0, 0);
       text-align: center;
       font-family: $sans;
       letter-spacing: 0.02em;

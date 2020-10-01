@@ -3,20 +3,18 @@
 {% block content %}
 
 
-<nav class="home-sections-nav">
-    <button>Walks and Events</button>
-    <button>Blog</button>
-</nav>
 <section class="home-sections">
     <section class="home-section walks">
+        <h2>Walks and Events</h2>
         {% for post in walks %}
         <article class="post-list-item">
             {% include '/partial/tease-walk.twig' %}
         </article>
         {% endfor %}
     </section>
-
+    
     <section class="home-section posts">
+        <h2>Blog</h2>
         {% for post in posts %}
         <article class="post-list-item">
             {% include '/partial/tease-post.twig' %}
