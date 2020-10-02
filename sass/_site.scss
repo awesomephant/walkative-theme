@@ -1,24 +1,33 @@
 .site-header {
   grid-column: 1 / 13;
-  padding-bottom: 10vh;
-  // text-align: center;
-  // background-image: url('./assets/hero.jpg');
+  padding-bottom: 2rem;
+  padding-top: 2rem;
   background-size: 50%;
   background-repeat: no-repeat;
   background-position: right;
   width: 100%;
   color: black;
-  top: 0;
-  position: fixed;
   overflow: hidden;
-  left: 0;
-  padding-top: 1%;
+  svg {
+    width: 100%;
+    pointer-events: none;
+    position: absolute;
+    top: -40%;
+    mix-blend-mode: exclusion;
+    path {
+      fill: none;
+      stroke: rgb(89, 117, 195);
+      stroke-width: 4vw;
+    }
+  }
   .home & {
-    padding-top: 15%;
+    padding-top: 5%;
+    display: grid;
     padding-bottom: 15%;
+    grid-template-columns: 1fr 1fr;
     position: static;
-    background-image: url(./assets/line.svg);
     background-size: 120%;
+    margin-bottom: 2rem;
     background-position: center;
   }
 }
@@ -27,12 +36,14 @@
   font-family: $sans;
   font-size: var(--ms-0);
   letter-spacing: -.01em;
+  grid-column: 2;
   text-align: center;
   .home & {
-    font-size: var(--ms-5);
+    text-align: left;
+    font-size: var(--ms-3);
   }
   a {
-    font-weight: 500;
+    font-weight: 600;
     text-decoration: none;
   }
 }

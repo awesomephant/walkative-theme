@@ -3411,6 +3411,10 @@ performance-now@^2.1.0:
   version "2.1.0"
   resolved "https://registry.yarnpkg.com/performance-now/-/performance-now-2.1.0.tgz#6309f4e0e5fa913ec1c69307ae364b4b377c9e7b"
 
+perlin-noise@^0.0.1:
+  version "0.0.1"
+  resolved "https://registry.yarnpkg.com/perlin-noise/-/perlin-noise-0.0.1.tgz#62cc69c40a17b19cd44077c4032c21c1cfdf34ed"
+
 picomatch@^2.0.4, picomatch@^2.0.5, picomatch@^2.2.1:
   version "2.2.2"
   resolved "https://registry.yarnpkg.com/picomatch/-/picomatch-2.2.2.tgz#21f333e9b6b8eaff02468f5146ea406d345f4dad"
@@ -3957,6 +3961,10 @@ sha.js@^2.4.0, sha.js@^2.4.8:
 signal-exit@^3.0.0:
   version "3.0.3"
   resolved "https://registry.yarnpkg.com/signal-exit/-/signal-exit-3.0.3.tgz#a1410c2edd8f077b08b4e253c8eacfcaf057461c"
+
+simplenoise@^1.0.1:
+  version "1.0.1"
+  resolved "https://registry.yarnpkg.com/simplenoise/-/simplenoise-1.0.1.tgz#99e0501e90ef4070165d9b1a5267c461a7fde359"
 
 snapdragon-node@^2.0.1:
   version "2.1.1"

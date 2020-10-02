@@ -32,7 +32,6 @@ body {
   display: grid;
   font-family: $serif;
   grid-template-columns: repeat(12, 1fr);
-  padding-top: 6rem;
   &.home {
     padding-top: 0;
   }
