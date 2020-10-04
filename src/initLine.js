@@ -1,13 +1,14 @@
-const noise = require('simplenoise')
+const noise = require("simplenoise");
 
 const config = {
   pointCount: 150,
   debug: true,
-  noiseAmplitude: 300,
+  noiseAmplitude: 200,
   noiseFrequency: 0.0008,
-  speed: 0.0001,
-  slope: .1,
+  speed: 0.0002,
+  slope: 0.3,
   stackCount: 4,
+  lineWidth: 200,
 };
 
 let points = [];
@@ -20,6 +21,14 @@ function generatePathString(points) {
   let s = `M${points[0].currentX} ${points[0].currentY} `;
   for (let i = 1; i < points.length; i++) {
     s += `L${points[i].currentX} ${points[i].currentY} `;
+  }
+  s += `L${points[points.length - 1].currentX} ${
+    points[points.length - 1].currentY + config.lineWidth
+  } `;
+
+  // we loop backwards through the points array
+  for (let i = points.length - 1; i > -1; i--) {
+    s += `L${points[i].currentX} ${points[i].currentY + config.lineWidth}`;
   }
   return s;
 }
@@ -34,7 +43,12 @@ function animateLine() {
   offset += currentSpeed;
 
   for (let i = 0; i < points.length - 1; i++) {
-    points[i].currentY = h / 2 + noise.simplex2(points[i].currentX * config.noiseFrequency + offset, 3) * config.noiseAmplitude - points[i].currentX * config.slope + (noise.simplex2(points[i].currentX * .005 + offset, 3) * 15 + 100);
+    points[i].currentY =
+      h / 2 +
+      noise.simplex2(points[i].currentX * config.noiseFrequency + offset, 3) *
+        config.noiseAmplitude -
+      points[i].currentX * config.slope +
+      (noise.simplex2(points[i].currentX * 0.005 + offset, 3) * 15 + 100);
 
     let adjacent = points[i + 1].currentX - points[i].currentX;
     let opposite = points[i + 1].currentY - points[i].currentY;
@@ -67,7 +81,15 @@ function initLine(cb) {
   path = document.createElementNS("http://www.w3.org/2000/svg", "path");
   path.setAttribute("d", generatePathString(points));
   path.setAttribute("class", "line");
-  svgEl.insertAdjacentElement("afterbegin", path);
+  
+  let defs = document.createElementNS("http://www.w3.org/2000/svg", "defs");
+  let cp = document.createElementNS("http://www.w3.org/2000/svg", "clipPath");
+
+  cp.setAttribute("id", "cp");
+  cp.insertAdjacentElement("afterbegin", path);
+  defs.insertAdjacentElement("afterbegin", cp);
+  
+  svgEl.insertAdjacentElement("afterbegin", defs);
   animateLine();
 }
 

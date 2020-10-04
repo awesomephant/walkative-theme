@@ -18,21 +18,27 @@ a {
   text-decoration: underline;
   &:hover,
   &:focus {
-    text-decoration: none;
+    text-decoration: underline;
   }
 }
 
 body {
   font-family: var(--sans);
   font-size: var(--ms-0);
-  background-color: rgb(253, 253, 253);
+  border-left: 10px solid  $red;
   background-repeat: no-repeat;
   background-size: 100% 100%;
   color: rgb(7, 7, 7);
+  background: rgb(255, 255, 255);
   display: grid;
   font-family: $serif;
-  grid-template-columns: repeat(12, 1fr);
-  &.home {
-    padding-top: 0;
+  grid-template-columns: 2fr 3fr; // Perfect 5
+  column-gap: 1rem;
+  padding: 1rem 5%;
+  overflow-x: hidden;
+  &.page {
+    * {
+      color: $red;
+    }
   }
 }

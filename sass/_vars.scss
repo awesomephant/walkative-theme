@@ -25,14 +25,15 @@
 }
 
 $green: rgb(0, 114, 0);
+$red: #f81a1a;
 $serif: 'Georgia', sans-serif;
 $sans: "MD System Test", "Arial", sans-serif;
 
 :root {
     --fast: 250ms;
-    --ratio: 1.25; // Major 3
+    --ratio: 1.5; // Major 3
     --ms--1: calc(var(--ms-0) / var(--ratio));
-    --ms-0: clamp(1.1rem, 2.53vw, 1.35rem);
+    --ms-0: clamp(1rem, 2.53vw, 1.35rem);
     --ms-1: calc(var(--ms-0) * var(--ratio));
     --ms-2: calc(var(--ms-1) * var(--ratio));
     --ms-3: calc(var(--ms-2) * var(--ratio));
