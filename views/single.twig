@@ -1,19 +1,31 @@
 {% extends "base.twig" %}
 
 {% block content %}
+{% set df = "Ymd\\THi"%}
 <article class="post-type-{{ post.post_type }} article" id="post-{{ post.ID }}">
-	{% if post.thumbnail.src %}
-	<picture class="article-thumbnail">
-		<source srcset="{{ post.thumbnail.src|resize(800)|towebp }}" type="image/webp">
-		<source srcset="{{ post.thumbnail.src|resize(800)|tojpg }}" type="image/jpeg">
-		<img src="{{ post.thumbnail.src|resize(800)|tojpg }}" alt="{{ post.title }}">
-	</picture>
-	{% endif %}
+	<header class='article-header'>
+		{% if post.post_type  == "walk"%}
+		{% include "partial/walk-status.twig"%}
+		{% endif %}
+		{% if post.thumbnail.src %}
+		<picture class="article-thumbnail">
+			<source srcset="{{ post.thumbnail.src|resize(800)|towebp }}" type="image/webp">
+			<source srcset="{{ post.thumbnail.src|resize(800)|tojpg }}" type="image/jpeg">
+			<img src="{{ post.thumbnail.src|resize(800)|tojpg }}" alt="{{ post.title }}">
+		</picture>
+		{% endif %}
+	</header>
 
 	<h2 class="article-title">{{ post.title }}</h2>
 	{% if post.subtitle %}
 	<p class="article-intro">{{post.subtitle}}</p>
 	{% endif %}
+	{% if post.post_type == "walk" %}
+		{% include "partial/walk-data.twig"%}
+	{% endif %}
+	<main class="article-content">
+		{{post.content}}
+	</main>
 	<aside class="article-meta">
 		{% if post.authors %}
 		<ul class="post-authors">
@@ -36,8 +48,5 @@
 			datetime="{{ post.date|date('Y-m-d H:i:s') }}">{{ post.date }}</time>
 		{%endif%}
 	</aside>
-	<main class="article-content">
-		{{post.content}}
-	</main>
 </article>
 {% endblock %}

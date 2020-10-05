@@ -1,0 +1,14 @@
+{% set now = "now" | date("U") %}
+{% set start = post.start_date | date("U") %}
+<h4 class="walk-status">
+    {% if now < start %}
+    <span class="upcoming">
+        <svg width="10" height="10">
+            <circle cx="5" cy="5" r="5"></circle>
+        </svg>
+        Upcoming Event
+    </span>
+    {% else %}
+    <span class="past">Past Event</span>
+    {% endif %}
+ </h4>

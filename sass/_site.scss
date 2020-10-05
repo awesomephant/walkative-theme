@@ -1,7 +1,7 @@
 .site-pattern {
   background: url('./assets/pattern.png');
   background-size: 5px;
-  background-color: rgba($red, .15);
+  background-color: rgba($red, .1);
   background-repeat: repeat;
   width: 100vw;
   height: 100vh;
@@ -18,7 +18,7 @@
   width: 100%;
   color: $red;
   font-size: 1.2rem;
-  grid-column: 2 / 3;
+  grid-column: 1 / 2;
   letter-spacing: .01em;
   svg {
     width: 100vw;

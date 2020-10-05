@@ -23,8 +23,9 @@
 }
 .home-section {
   width: 100%;
-  display: contents;
+  grid-column: 2 / 3;
   h2 {
+    padding-top: 2rem;
     font-family: $sans;
     font-weight: 500;
     grid-column: 2 / 3;

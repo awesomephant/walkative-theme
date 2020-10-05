@@ -55,10 +55,17 @@ body {
   body.page * {
     color: #f81a1a; }
 
+.btn {
+  text-decoration: none;
+  background: black;
+  color: white;
+  padding: .25em .5em;
+  border-radius: 4px; }
+
 .site-pattern {
   background: url("./assets/pattern.png");
   background-size: 5px;
-  background-color: rgba(248, 26, 26, 0.15);
+  background-color: rgba(248, 26, 26, 0.1);
   background-repeat: repeat;
   width: 100vw;
   height: 100vh;
@@ -75,7 +82,7 @@ body {
   width: 100%;
   color: #f81a1a;
   font-size: 1.2rem;
-  grid-column: 2 / 3;
+  grid-column: 1 / 2;
   letter-spacing: .01em; }
   .site-header svg {
     width: 100vw;
@@ -148,8 +155,9 @@ body {
 
 .home-section {
   width: 100%;
-  display: contents; }
+  grid-column: 2 / 3; }
   .home-section h2 {
+    padding-top: 2rem;
     font-family: "MD System Test", "Arial", sans-serif;
     font-weight: 500;
     grid-column: 2 / 3;
@@ -212,10 +220,13 @@ body {
   font-family: "MD System Test", "Arial", sans-serif;
   letter-spacing: -0.002em;
   grid-column: 2 / 3;
-  margin-bottom: 0.5em; }
+  margin-bottom: 0.1em; }
   @media (min-width: 800px) {
     .article-title {
       font-size: var(--ms-2); } }
+
+.article-header {
+  padding-top: 2rem; }
 
 .article-thumbnail {
   display: block;
@@ -228,12 +239,13 @@ body {
 
 .article-intro {
   grid-column: 2 / 3;
-  font-size: var(--ms-1); }
+  font-size: var(--ms-1);
+  margin-bottom: 2rem; }
 
 .article-meta {
   font-family: "MD System Test", "Arial", sans-serif;
   font-size: var(--ms--1);
-  padding-top: 2rem;
+  padding-top: 1rem;
   margin-bottom: 2rem;
   grid-column: 2 / 3;
   font-weight: 600; }
@@ -362,3 +374,40 @@ body {
   font-weight: normal; }
   .post-authors .name {
     font-weight: 600; }
+
+.walk-data {
+  font-family: "MD System Test", "Arial", sans-serif;
+  border: 1px solid black;
+  border-radius: 3px;
+  font-size: 1.2rem;
+  line-height: 1.2;
+  justify-self: flex-start;
+  align-self: flex-start;
+  width: 80%;
+  max-width: 35rem;
+  margin-top: -1rem;
+  margin-bottom: 1rem;
+  grid-column: 2 / 3; }
+  .walk-data summary {
+    padding: 1rem;
+    cursor: pointer; }
+
+.walk-status {
+  grid-column: 2 / 3;
+  font-size: 1.2rem;
+  font-family: "MD System Test", "Arial", sans-serif;
+  margin-bottom: 1rem; }
+
+.walk-data-item {
+  padding: 1rem;
+  border-bottom: 1px solid black;
+  display: flex; }
+  .walk-data-item:last-of-type {
+    border-bottom: 0; }
+  .walk-data-item em {
+    font-weight: bold;
+    font-style: normal;
+    flex-basis: 45%;
+    flex-shrink: 0; }
+  .walk-data-item span {
+    display: block; }

@@ -1,0 +1,33 @@
+{% set now = "now" | date("U") %}
+{% set start = post.start_date | date("U") %}
+
+<details class="walk-data" {% if now < start %}open{% endif %}>
+    <summary>Walk Information</summary>
+    <ul>
+        <li class="walk-data-item">
+            <em>Date</em>
+            <p>
+                <span>{{post.start_date | date("F d, Y") }}</span>
+                <span>{{post.start_date | date('h:ia')}} – {{post.end_date | date('h:ia')}}</span>
+            </p>
+        </li>
+        <li class="walk-data-item">
+            <em>Meeting Point</em>
+            <p>{{post.location}}</p>
+        </li>
+        {% if post.tickets %}
+        <li class="walk-data-item">
+            <em>Tickets</em>
+            <p><a href="{{post.tickets.url}}">{{post.tickets.title}}</a></p>
+        </li>
+        {% endif %}
+        {% if now < start %}
+        <li class="walk-data-item">
+            <em></em>
+            <a class='btn' target='_blank'
+                href="https://calendar.google.com/calendar/r/eventedit?text={{post.title | url_encode}}&dates={{post.start_date |date(df)}}/{{post.end_date | date(df)}}&location={{post.location | url_encode}}&details={{post.content | url_encode}}">Add
+                to Google Calendar</a>
+        </li>
+        {% endif %}
+    </ul>
+</details>

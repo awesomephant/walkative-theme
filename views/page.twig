@@ -2,8 +2,10 @@
 
 {% block content %}
 <article class="post-type-{{post.post_type}} article" id="post-{{post.ID}}">
-	<section class="article-content">
+	<header class="article-header">
 		<h1 class="article-title">{{post.title}}</h1>
+	</header>
+	<section class="article-content">
 		<main class="article-content">
 			{{post.content}}
 		</main>
