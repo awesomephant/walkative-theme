@@ -14,14 +14,13 @@
 			<img src="{{ post.thumbnail.src|resize(800)|tojpg }}" alt="{{ post.title }}">
 		</picture>
 		{% endif %}
+		<h2 class="article-title">{{ post.title }}</h2>
+		{% if post.subtitle %}
+		<p class="article-intro">{{post.subtitle}}</p>
+		{% endif %}
 	</header>
-
-	<h2 class="article-title">{{ post.title }}</h2>
-	{% if post.subtitle %}
-	<p class="article-intro">{{post.subtitle}}</p>
-	{% endif %}
 	{% if post.post_type == "walk" %}
-		{% include "partial/walk-data.twig"%}
+	{% include "partial/walk-data.twig"%}
 	{% endif %}
 	<main class="article-content">
 		{{post.content}}

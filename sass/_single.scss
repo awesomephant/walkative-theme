@@ -5,7 +5,7 @@
 .article-title {
   font-size: var(--ms-1);
   line-height: 1;
-  font-weight: 700;
+  font-weight: 900;
   font-family: $sans;
   letter-spacing: -0.002em;
   grid-column: 2 / 3;
@@ -23,6 +23,7 @@
   display: block;
   margin-bottom: 2rem;
   grid-column: 2 / 3;
+  mix-blend-mode: multiply;
   display: flex;
   img {
     max-height: 40vh;
@@ -34,6 +35,7 @@
   grid-column: 2 / 3;
   font-size: var(--ms-1);
   margin-bottom: 2rem;
+  font-family: $sans;
 }
 .article-meta {
   font-family: $sans;
@@ -44,6 +46,7 @@
   font-weight: 600;
 }
 .article-content {
+  font-family: $sans;
   font-size: var(--ms-0);
   .page & {
   }
@@ -68,11 +71,21 @@
   p + p {
     text-indent: 4em;
   }
+  ul, ol {
+    margin-left: 1em;
+    margin-bottom: .5em;
+    max-width: 35em;
+  }
   h2 {
     font-family: $sans;
     margin-top: 4em;
     font-weight: bold;
     margin-bottom: 0.5em;
+  }
+  h3 {
+    font-family: $sans;
+    margin-top: 1em;
+    margin-bottom: 0.25em;
   }
   img {
     display: block;
@@ -83,18 +96,17 @@
     grid-column: 2 / 3;
   }
   .wp-block-quote {
-    font-weight: bold;
-    font-family: $sans;
+    font-family: $serif;
     margin-bottom: 1rem;
     margin-top: 1rem;
     font-style: normal;
     grid-column: 2 / 3;
     line-height: 1.19;
-    margin-left: 2em;
+    margin-left: 4em;
+    width: 60%;
     position: relative;
     &:before {
       position: absolute;
-      content: "";
       height: 98%;
       width: 1.5em;
       top: 0.2em;
@@ -109,6 +121,7 @@
     cite {
       font-size: var(--ms--1);
       font-style: normal;
+      font-family: $sans;
       font-weight: normal;
       display: block;
       margin-top: 0.5rem;
@@ -146,6 +159,10 @@
     padding-bottom: 10%;
     margin-top: 2rem;
     margin-bottom: 2rem;
+    position: relative;
+    z-index: 100;
+    background: url("./assets/pattern.png");
+    background-size: 4px;
     &.columns-2 {
       grid-template-columns: repeat(2, 1fr);
     }
@@ -175,10 +192,9 @@
     }
     figcaption {
       color: rgb(0, 0, 0);
-      text-align: center;
       font-family: $sans;
       letter-spacing: 0.02em;
-      font-size: var(--ms--1);
+      font-size: 1.1rem;
       line-height: 1.1;
     }
   }
