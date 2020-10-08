@@ -1,19 +1,21 @@
 .walk-data {
   font-family: $sans;
-  border: 1px solid black;
+  border: 1px solid rgb(12, 12, 12);
   border-radius: 3px;
   font-size: 1.2rem;
   line-height: 1.2;
-  justify-self: flex-start;
-  align-self: flex-start;
-  width: 80%;
-  max-width: 35rem;
-  margin-top: -1rem;
-  margin-bottom: 1rem;
+  max-width: 45rem;
+  padding: 0;
+  margin-top: 0rem;
+  margin-bottom: 2rem;
   grid-column: 2 / 3;
   summary {
     padding: 1rem;
     cursor: pointer;
+  }
+  ul {
+    margin: 0;
+    width: 100%;
   }
 }
 
@@ -21,26 +23,27 @@
   grid-column: 2 / 3;
   font-family: $sans;
   svg {
-    margin-right: .2rem;
+    margin-right: 0.2rem;
     position: relative;
-    top: -.1em
+    top: -0.1em;
   }
 }
 
 .walk-data-item {
   padding: 1rem;
-  border-bottom: 1px solid black;
+  list-style: none;
+  border-bottom: 1px solid lightgray;
+  display: flex;
   &:last-of-type {
     border-bottom: 0;
   }
   em {
     font-weight: bold;
     font-style: normal;
-    flex-basis: 45%;
+    flex-basis: 35%;
     flex-shrink: 0;
   }
   span {
     display: block;
   }
-  display: flex;
 }

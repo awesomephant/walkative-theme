@@ -26,12 +26,12 @@
 
 $green: rgb(0, 114, 0);
 $red: #f51803;
-$serif: 'Georgia', sans-serif;
+$serif: 'Times New Roman', sans-serif;
 $sans: "MD System Test", "Arial", sans-serif;
 
 :root {
     --fast: 250ms;
-    --ratio: 1.5; // Major 3
+    --ratio: 1.3; // Major 3
     --ms--1: calc(var(--ms-0) / var(--ratio));
     --ms-0: clamp(1rem, 2.53vw, 1.35rem);
     --ms-1: calc(var(--ms-0) * var(--ratio));

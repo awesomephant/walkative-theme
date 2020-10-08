@@ -8,7 +8,7 @@ const config = {
   speed: 0.0002,
   slope: 0.3,
   stackCount: 4,
-  lineWidth: window.innerHeight * .05,
+  lineWidth: window.innerHeight * .25,
 };
 
 let points = [];

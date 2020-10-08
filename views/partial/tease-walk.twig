@@ -1,20 +1,14 @@
 {% block content %}
 
-<a class="post-list-thumbnail" href="{{post.link}}">
-	<picture>
-		<source srcset="{{ post.thumbnail.src|resize(400)|towebp }}" type="image/webp">
-		<source srcset="{{ post.thumbnail.src|resize(400)|tojpg }}" type="image/jpeg">
-		<img src="{{ post.thumbnail.src|resize(400)|tojpg }}" alt="{{ post.title }}">
-	</picture>
-</a>
-<a class='post-list-title' href="{{post.link}}">
-	<h3>{{ post.title }}</h3>
-</a>
 <div class="post-list-meta">
 	{% include "partial/walk-status.twig"%} {{post.start_date | date("F d, Y")}}
 </div>
-
-<p class='post-list-subtitle'>{{ post.subtitle }}</p>
+<div>
+	<a class='post-list-title' href="{{post.link}}">
+		<h3>{{ post.title }}</h3>
+	</a>
+	<p class='post-list-subtitle'>{{ post.subtitle }}</p>
+</div>
 
 
 {% endblock %}
