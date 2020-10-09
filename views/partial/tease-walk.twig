@@ -1,7 +1,11 @@
 {% block content %}
 
 <div class="post-list-meta">
+	{% if post.post_type == "walk"%}
 	{% include "partial/walk-status.twig"%} {{post.start_date | date("F d, Y")}}
+	{% else %}
+	{{post.date}}
+	{% endif %}
 </div>
 <div>
 	<a class='post-list-title' href="{{post.link}}">

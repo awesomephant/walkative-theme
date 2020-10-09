@@ -35,7 +35,7 @@ a {
   color: inherit;
   text-decoration: underline; }
   a:hover, a:focus {
-    text-decoration: underline; }
+    text-decoration: none; }
 
 body {
   font-family: var(--sans);
@@ -43,29 +43,33 @@ body {
   background-repeat: no-repeat;
   background-size: 100% 100%;
   color: #070707;
-  background: #e2dfdd;
+  background: #e4ddd6;
   display: grid;
   font-family: "Times New Roman", sans-serif;
   grid-template-columns: repeat(12, 1fr);
   -moz-column-gap: 1rem;
   column-gap: 1rem;
   padding: 0 5%;
-  overflow-x: hidden; }
+  overflow-x: hidden;
+  overflow-y: scroll; }
 
 .btn, .newsletter-form .button {
   text-decoration: none;
   background: black;
   color: white;
-  padding: .25em .5em;
-  border-radius: 4px;
+  padding: .4em 1em;
+  border-radius: 2px;
   cursor: pointer;
-  border: 0; }
+  border: 0;
+  font-size: var(--ms--1); }
+  .btn:hover, .newsletter-form .button:hover, .btn:focus, .newsletter-form .button:focus {
+    text-decoration: none;
+    background: #242424; }
 
 .site-pattern {
-  background: url(http://localhost:3000/wp-content/uploads/2018/03/IMG_0315-e1521658952185-800x0-c-default.webp);
+  background: black;
   background-size: 100%, 5px;
   background-repeat: repeat;
-  background-color: rgba(0, 0, 0, 0.05);
   width: 100vw;
   height: 100vh;
   left: 0;
@@ -73,11 +77,10 @@ body {
   -webkit-clip-path: url(#cp);
   clip-path: url(#cp);
   pointer-events: none;
-  mix-blend-mode: multiply;
-  filter: grayscale(0) blur(6px) brightness(1.1); }
+  mix-blend-mode: multiply; }
 
 .site-header {
-  padding-bottom: 4rem;
+  padding-bottom: 10rem;
   padding-top: 2rem;
   width: 100%;
   color: black;
@@ -89,6 +92,12 @@ body {
   font-family: "Times New Roman", sans-serif;
   font-size: var(--ms-2);
   grid-column: 2 / 12; }
+  .site-header a {
+    font-family: "MD System Test", "Arial", sans-serif;
+    font-size: .91em;
+    font-weight: 600; }
+    .site-header a:hover, .site-header a:focus {
+      text-decoration: none; }
   .site-header p {
     padding-top: 1rem;
     -webkit-hyphens: auto;
@@ -106,8 +115,7 @@ body {
       fill: #f51803; }
 
 .site-nav {
-  font-family: "MD System Test", "Arial", sans-serif;
-  font-weight: 500; }
+  font-family: "MD System Test", "Arial", sans-serif; }
   .site-nav ul {
     display: flex; }
   .site-nav li {
@@ -117,52 +125,65 @@ body {
     letter-spacing: .02em;
     font-weight: normal; }
   .site-nav a {
+    font-weight: 500;
     text-decoration: none; }
     .site-nav a:hover, .site-nav a:focus {
       text-decoration: underline; }
 
 .site-footer {
-  grid-column: 1 / 3;
+  grid-column: 2 / 12;
   font-family: "MD System Test", "Arial", sans-serif;
-  padding-top: 4rem;
+  padding-top: 50vh;
+  padding-bottom: 4rem;
   font-size: var(--ms--1); }
+  .site-footer nav {
+    margin-bottom: 1rem; }
 
-.home-sections {
+.home-tabs {
   width: 100%;
   grid-column: 2 / 12;
   background: white;
   border-radius: 3px;
-  margin-top: 10rem;
-  z-index: 100; }
+  z-index: 100;
+  overflow: hidden;
+  margin-top: 10rem; }
 
-.home-sections-nav {
-  display: flex;
-  border-bottom: 0;
-  padding: 0.5rem 0;
-  border-radius: 0.1rem 0.1rem 0 0;
-  width: 100%;
-  justify-content: space-around;
-  font-family: "MD System Test", "Arial", sans-serif; }
-  .home-sections-nav button {
-    color: black;
+.home-tablist {
+  padding: 2rem;
+  background: white;
+  border-bottom: 1px solid black; }
+  .home-tablist button {
+    background: none;
     -webkit-appearance: none;
     -moz-appearance: none;
     appearance: none;
-    background: none;
-    font-weight: bold;
-    margin-right: 1rem;
-    font-size: var(--ms-1); }
-
-.home-section {
-  width: 100%; }
-  .home-section h2 {
     font-family: "MD System Test", "Arial", sans-serif;
-    font-weight: 400;
-    padding: 2rem;
-    padding-left: 1rem;
-    margin-left: 30%;
-    grid-column: 2 / 3;
-    font-size: var(--ms-0); }
+    width: 10em;
+    font-size: var(--ms-0);
+    text-align: left;
+    cursor: pointer;
+    font-weight: 400; }
+    .home-tablist button:before {
+      content: "";
+      background: currentColor;
+      width: 0.5em;
+      height: 0.5em;
+      display: inline-block;
+      border-radius: 100%;
+      margin-right: 0.5em;
+      position: relative;
+      top: -0.1em;
+      opacity: 0;
+      transition: 200ms;
+      transform: scale(0); }
+    .home-tablist button[aria-selected="true"] {
+      font-weight: bold; }
+      .home-tablist button[aria-selected="true"]:before {
+        opacity: 1;
+        transform: scale(1); }
+    .home-tablist button:hover, .home-tablist button:focus {
+      text-decoration: underline;
+      outline: 0; }
 
 .post-list-item {
   padding: 2rem;
@@ -170,8 +191,6 @@ body {
   padding-bottom: 4rem;
   display: flex;
   border-bottom: 1px solid lightgray; }
-  .post-list-item:first-of-type {
-    border-top: 1px solid lightgray; }
   .post-list-item:hover img,
   .post-list-item:hover picture {
     filter: grayscale(0) blur(0); }
@@ -200,9 +219,12 @@ body {
   font-size: var(--ms-3);
   max-width: 20em;
   text-decoration: none;
+  letter-spacing: -0.005em;
   line-height: 1;
   margin-bottom: 0.25rem;
   display: inline-block; }
+  .post-list-title:hover, .post-list-title:focus {
+    text-decoration: underline; }
 
 .post-list-subtitle {
   font-size: var(--ms-0);
@@ -216,13 +238,14 @@ body {
   font-size: var(--ms--1);
   flex-basis: 30%;
   flex-grow: 0;
-  flex-shrink: 1; }
+  flex-shrink: 0; }
 
 .article {
   background: white;
   padding: 2rem;
   grid-column: 2 / 12;
   display: grid;
+  border-radius: 3px;
   position: relative;
   z-index: 100;
   grid-template-columns: 1fr 45rem 1fr; }
@@ -262,7 +285,7 @@ body {
 .article-intro {
   font-size: var(--ms-1);
   margin-bottom: 1rem;
-  margin-top: -.5rem;
+  margin-top: .5rem;
   font-family: "MD System Test", "Arial", sans-serif;
   text-align: center;
   line-height: 1.1;
@@ -286,6 +309,16 @@ body {
   display: contents;
   letter-spacing: 0.02em;
   line-height: 1.3; }
+  .article-content h1,
+  .article-content h2,
+  .article-content h3,
+  .article-content h4,
+  .article-content h5,
+  .article-content h6,
+  .article-content ul,
+  .article-content ol,
+  .article-content p, .article-content [class*=wp-block] {
+    grid-column: 2 / 3; }
   .article-content p {
     max-width: 45rem; }
   .article-content p + p {

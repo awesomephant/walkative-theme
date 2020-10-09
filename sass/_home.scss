@@ -1,40 +1,53 @@
-.home-sections {
+.home-tabs {
   width: 100%;
   grid-column: 2 / 12;
   background: white;
   border-radius: 3px;
-  margin-top: 10rem;
   z-index: 100;
+ overflow: hidden;
+  margin-top: 10rem;
+  //  opacity: calc(var(--y) * .005);
 }
 
-.home-sections-nav {
-  display: flex;
-  border-bottom: 0;
-  padding: 0.5rem 0;
-  border-radius: 0.1rem 0.1rem 0 0;
-  width: 100%;
-  justify-content: space-around;
-  font-family: $sans;
-
+.home-tablist {
+  padding: 2rem;
+  background: white;
+  border-bottom: 1px solid black;
   button {
-    color: black;
-    appearance: none;
     background: none;
-    font-weight: bold;
-    margin-right: 1rem;
-    font-size: var(--ms-1);
-  }
-}
-.home-section {
-  width: 100%;
-  h2 {
+    appearance: none;
     font-family: $sans;
-    font-weight: 400;
-    padding: 2rem;
-    padding-left: 1rem;
-    margin-left: 30%;
-    grid-column: 2 / 3;
+    width: 10em;
     font-size: var(--ms-0);
+    text-align: left;
+    cursor: pointer;
+    font-weight: 400;
+    &:before {
+      content: "";
+      background: currentColor;
+      width: 0.5em;
+      height: 0.5em;
+      display: inline-block;
+      border-radius: 100%;
+      margin-right: 0.5em;
+      position: relative;
+      top: -0.1em;
+      opacity: 0;
+      transition: $fast;
+      transform: scale(0);
+    }
+    &[aria-selected="true"] {
+      font-weight: bold;
+      &:before {
+        opacity: 1;
+        transform: scale(1);
+      }
+    }
+    &:hover,
+    &:focus {
+      text-decoration: underline;
+      outline: 0;
+    }
   }
 }
 
@@ -44,9 +57,6 @@
   padding-bottom: 4rem;
   display: flex;
   border-bottom: 1px solid lightgray;
-  &:first-of-type {
-    border-top: 1px solid lightgray;
-  }
   &:hover {
     img,
     picture {
@@ -82,9 +92,14 @@
   font-size: var(--ms-3);
   max-width: 20em;
   text-decoration: none;
+  letter-spacing: -0.005em;
   line-height: 1;
   margin-bottom: 0.25rem;
   display: inline-block;
+  &:hover,
+  &:focus {
+    text-decoration: underline;
+  }
 }
 
 .post-list-subtitle {
@@ -100,7 +115,7 @@
   font-size: var(--ms--1);
   flex-basis: 30%;
   flex-grow: 0;
-  flex-shrink: 1;
+  flex-shrink: 0;
   .walk-status {
   }
 }

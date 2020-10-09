@@ -21,6 +21,12 @@
             <p><a href="{{post.tickets.url}}">{{post.tickets.title}}</a></p>
         </li>
         {% endif %}
+        {% if post.notes %}
+        <li class="walk-data-item">
+            <em>Notes</em>
+            <p>{{post.notes}}</p>
+        </li>
+        {% endif %}
         {% if now < start %}
         <li class="walk-data-item">
             <em></em>

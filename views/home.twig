@@ -2,19 +2,22 @@
 
 {% block content %}
 
+{# https://www.w3.org/TR/wai-aria-practices/examples/tabs/tabs-1/tabs.html #}
 
-<section class="home-sections">
-    <section class="home-section walks">
-        <h2>Walks and Events</h2>
+<section class="home-tabs">
+    <div class='home-tablist' role='tablist'>
+        <button role='tab' aria-selected="true" aria-controls="walks-tab" id="walks">Walks and Events</button>
+        <button role='tab' aria-selected="false" aria-controls="blog-tab" id="blog">Articles</button>
+    </div>
+    <section class="home-tab walks" id="walks-tab" role="tabpanel" aria-labelledby="walks">
         {% for post in walks %}
         <article class="post-list-item">
             {% include '/partial/tease-walk.twig' %}
         </article>
         {% endfor %}
     </section>
-    
-    <section class="home-section posts">
-        <h2>Recent Articles</h2>
+
+    <section class="home-tab blog" id="blog-tab" role="tabpanel" aria-labelledby="blog" hidden="hidden">
         {% for post in posts %}
         <article class="post-list-item">
             {% include '/partial/tease-walk.twig' %}
