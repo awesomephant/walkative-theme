@@ -14,19 +14,8 @@
  * @since   Timber 0.1
  */
 
+$timber_post     = new Timber\Post();
 $context          = Timber::context();
-$context['posts'] = new Timber\PostQuery();
-$walk_args = array(
-	"post_type" => "walk",
-	"numberposts" => -1,
-	"orderby" => "meta_value_date",
-	"meta_key" => "start_date", // walk start
-	"order" => "ASC"
-);
 
-$context['walks'] = Timber::get_posts($walk_args);
-$templates        = array('index.twig');
-if (is_home()) {
-	array_unshift($templates, 'front-page.twig', 'home.twig');
-}
-Timber::render($templates, $context);
+$context['post'] = $timber_post;
+Timber::render("archive.twig", $context);

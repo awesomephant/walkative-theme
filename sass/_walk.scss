@@ -9,9 +9,18 @@
   margin-top: 0rem;
   margin-bottom: 2rem;
   grid-column: 2 / 3;
+  font-size: var(--ms-0);
+  @include bp(m) {
+    font-size: var(--ms--1);
+  }
+  &[open] summary {
+    border-bottom: 1px solid black;
+  }
   summary {
     padding: 1rem;
     cursor: pointer;
+    font-weight: bold;
+
   }
   ul {
     margin: 0;
@@ -33,12 +42,13 @@
 }
 
 .walk-data-item {
-  padding: 1rem;
+  padding: .8rem 1rem;
   list-style: none;
   border-bottom: 1px solid lightgray;
   display: flex;
   &:last-of-type {
     border-bottom: 0;
+    padding-bottom: 0;
   }
   em {
     font-weight: bold;

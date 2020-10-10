@@ -5,10 +5,10 @@ const config = {
   debug: true,
   noiseAmplitude: 200,
   noiseFrequency: 0.0008,
-  speed: 0.0002,
+  speed: 0.00023,
   slope: 0.3,
   stackCount: 4,
-  lineWidth: window.innerHeight * .25,
+  lineWidth: window.innerHeight * .22,
 };
 
 let points = [];

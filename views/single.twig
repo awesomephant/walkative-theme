@@ -6,6 +6,8 @@
 	<header class='article-header'>
 		{% if post.post_type  == "walk"%}
 		{% include "partial/walk-status.twig"%}
+		{% else %}
+		<span class="post-date">{{post.date}}</span>
 		{% endif %}
 		{% if post.thumbnail.src %}
 		<picture class="article-thumbnail">

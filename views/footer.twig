@@ -1,8 +1,13 @@
 <footer class="site-footer">
     <nav class="site-nav" role="navigation">
         {% include "menu.twig" with {'items': menu.get_items} %}
-    </nav>  
-    © The Walkative Project, 2015–{{"now"|date('Y')}}
+    </nav>
+    <span>
+        © The Walkative Project 2015–{{"now"|date('Y')}}.
+    </span>
+    <span>
+        Texts and images belong to their authors.
+    </span>
 </footer>
 
 <script src="{{theme.link}}/dist/dist.js?v=1.2"></script>

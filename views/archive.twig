@@ -1,9 +1,18 @@
-{# This file demonstrates using most of the index.twig template and modifying 
-   just a small part. See `search.twig` for an example of another approach #}
-
-{% extends "index.twig" %}
+{% extends "base.twig" %}
 
 {% block content %}
-  <h3>This is my archive</h3>
-  {{ parent() }}
+<main class="archive-container">
+    <h2 class="archive-title">
+        {% if post.title %}{{post.title}}{% else %}{{title}}{% endif %}
+        <span class="archive-page">
+            {{posts.pagination.current}}/{{posts.pagination.total}}
+        </span>
+    </h2>
+    {% for post in posts %}
+    <article class="post-list-item">
+        {% include ['/partial/tease-'~post.post_type~'.twig', 'tease.twig'] %}
+    </article>
+    {% endfor %}
+    {% include 'partial/pagination.twig' with { pagination: posts.pagination({show_all: false, mid_size: 3, end_size: 2}) } %}
+</main>
 {% endblock %}

@@ -67,8 +67,8 @@ class WalkativeSite extends Timber\Site
 	public function register_post_types()
 	{
 		$labels = [
-			"name" => __("Walks", "custom-post-type-ui"),
-			"singular_name" => __("Walk", "custom-post-type-ui"),
+			"name" => __("Walks and Events", "custom-post-type-ui"),
+			"singular_name" => __("Event", "custom-post-type-ui"),
 		];
 
 		$args = [
@@ -110,6 +110,21 @@ class WalkativeSite extends Timber\Site
 		$context['menu']  = new Timber\Menu();
 		$context['site']  = $this;
 		$context['isHome']  = is_home();
+
+		$posts_args = array(
+			"post_type" => "post",
+		);
+
+		$context['home_posts'] = Timber::get_posts($posts_args);
+
+		$walk_args = array(
+			"post_type" => "walk",
+			"orderby" => "meta_value_date",
+			"meta_key" => "start_date", // walk start
+			"order" => "ASC"
+		);
+
+		$context['walks'] = Timber::get_posts($walk_args);
 		return $context;
 	}
 

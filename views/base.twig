@@ -7,7 +7,7 @@
 {% endblock %}
 
 <body class="{{body_class}}" data-template="base.twig">
-	<div class="site-pattern"></div>
+	<div class="site-pattern" {% if post.thumbnail.src %}style=" background-image: url({{post.thumbnail.src}})"{%endif%}></div>
 	<header class="site-header">
 		{% block header %}
 		{% include '/partial/header.twig'%}

@@ -1,18 +1,25 @@
 .home-tabs {
   width: 100%;
-  grid-column: 2 / 12;
+  grid-column: 1 / 13;
+  @include bp(m) {
+    grid-column: 2 / 12;
+  }
   background: white;
   border-radius: 3px;
   z-index: 100;
- overflow: hidden;
+  overflow: hidden;
   margin-top: 10rem;
-  //  opacity: calc(var(--y) * .005);
+  opacity: calc(var(--y) * 0.01);
 }
 
 .home-tablist {
-  padding: 2rem;
   background: white;
   border-bottom: 1px solid black;
+  padding: 1rem;
+  display: flex;
+  @include bp(s) {
+    padding: 2rem;
+  }
   button {
     background: none;
     appearance: none;
@@ -52,23 +59,22 @@
 }
 
 .post-list-item {
-  padding: 2rem;
-  padding-top: 1rem;
-  padding-bottom: 4rem;
+  padding: 1rem;
   display: flex;
   border-bottom: 1px solid lightgray;
+  flex-flow: column;
+  @include bp(m) {
+    flex-flow: row;
+    padding: 2rem;
+    padding-top: 1rem;
+    padding-bottom: 4rem;
+  }
   &:hover {
     img,
     picture {
       filter: grayscale(0) blur(0);
     }
   }
-}
-
-.post-list-info {
-  display: flex;
-  flex-flow: column;
-  align-items: center;
 }
 
 .post-list-thumbnail {
@@ -89,10 +95,13 @@
 
 .post-list-title {
   font-family: $serif;
-  font-size: var(--ms-3);
+  font-size: var(--ms-2);
+  @include bp(l) {
+    font-size: var(--ms-3);
+    letter-spacing: -0.005em;
+  }
   max-width: 20em;
   text-decoration: none;
-  letter-spacing: -0.005em;
   line-height: 1;
   margin-bottom: 0.25rem;
   display: inline-block;
@@ -116,6 +125,27 @@
   flex-basis: 30%;
   flex-grow: 0;
   flex-shrink: 0;
-  .walk-status {
+  display: flex;
+  margin-bottom: 0.5rem;
+  @include bp(s) {
+    margin-bottom: 0;
+    flex-flow: column;
   }
+  .walk-status {
+    margin-right: 1rem;
+    @include bp(s) {
+      margin-right: 0;
+    }
+  }
+}
+
+.post-list-footer {
+  padding: 1rem;
+  @include bp(m) {
+    padding: 2rem;
+  }
+}
+
+.view-all {
+  font-family: $sans;
 }
