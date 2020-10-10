@@ -44,7 +44,7 @@ function js() {
 function bs() {
   browserSync.init({
     proxy: "walkative.test",
-    files: ["./views/**/*.twig"],
+    files: ["./views/**/*.twig", "./theme/**/*.php", "./theme/**/*.js"],
   });
 }
 

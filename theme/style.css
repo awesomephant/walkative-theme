@@ -480,6 +480,8 @@ body {
     margin-right: 0.2rem;
     position: relative;
     top: -0.1em; }
+  .walk-status .upcoming {
+    font-weight: bold; }
 
 .walk-data-item {
   padding: 1rem;

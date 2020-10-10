@@ -16,7 +16,15 @@
 
 $context          = Timber::context();
 $context['posts'] = new Timber\PostQuery();
-$context['walks'] = Timber::get_posts('post_type=walk&numberposts=-1');
+$walk_args = array(
+	"post_type" => "walk",
+	"numberposts" => -1,
+	"orderby" => "meta_value_date",
+	"meta_key" => "start_date", // walk start
+	"order" => "ASC"
+);
+
+$context['walks'] = Timber::get_posts($walk_args);
 $templates        = array('index.twig');
 if (is_home()) {
 	array_unshift($templates, 'front-page.twig', 'home.twig');
