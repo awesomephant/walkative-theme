@@ -28,7 +28,7 @@ body {
   background-repeat: no-repeat;
   background-size: 100% 100%;
   color: rgb(7, 7, 7);
-  background: rgb(228, 221, 214);
+  background: $lightgray;
   display: grid;
   font-family: $serif;
   grid-template-columns: repeat(12, 1fr);

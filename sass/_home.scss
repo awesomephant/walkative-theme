@@ -4,18 +4,17 @@
   @include bp(m) {
     grid-column: 2 / 12;
   }
-  background: white;
-  border-radius: 3px;
   z-index: 100;
   overflow: hidden;
   margin-top: 6rem;
-//  opacity: calc(var(--y) * 0.01);
+  //  opacity: calc(var(--y) * 0.01);
 }
 
 .home-tablist {
-  background: white;
-  border-bottom: 1px solid black;
+  border-radius: $br;
+  margin-bottom: 4px;
   padding: 1rem;
+  background: white;
   display: flex;
   @include bp(s) {
     padding: 2rem;
@@ -55,94 +54,6 @@
       text-decoration: underline;
       outline: 0;
     }
-  }
-}
-
-.post-list-item {
-  padding: 1rem;
-  display: flex;
-  border-bottom: 1px solid lightgray;
-  flex-flow: column;
-  @include bp(m) {
-    flex-flow: row;
-    padding: 2rem;
-    padding-top: 1rem;
-    padding-bottom: 4rem;
-  }
-  &:hover {
-    img,
-    picture {
-      filter: grayscale(0) blur(0);
-    }
-  }
-}
-
-.post-list-thumbnail {
-  position: relative;
-  z-index: 100;
-  display: none;
-  margin-left: 1rem;
-  img,
-  picture {
-    filter: grayscale(1) blur(0px);
-    border-radius: 2px;
-    margin-bottom: 0.5rem;
-    height: 10rem;
-    width: auto;
-    display: block;
-  }
-}
-
-.post-list-title {
-  font-family: $serif;
-  font-size: var(--ms-2);
-  @include bp(l) {
-    font-size: var(--ms-3);
-    letter-spacing: -0.005em;
-  }
-  max-width: 20em;
-  text-decoration: none;
-  line-height: 1;
-  margin-bottom: 0.25rem;
-  display: inline-block;
-  &:hover,
-  &:focus {
-    text-decoration: underline;
-  }
-}
-
-.post-list-subtitle {
-  font-size: var(--ms-0);
-  font-family: $sans;
-  max-width: 20em;
-  line-height: 1.15;
-  margin-top: 0.25rem;
-}
-
-.post-list-meta {
-  font-family: $sans;
-  font-size: var(--ms--1);
-  flex-basis: 30%;
-  flex-grow: 0;
-  flex-shrink: 0;
-  display: flex;
-  margin-bottom: 0.5rem;
-  @include bp(s) {
-    margin-bottom: 0;
-    flex-flow: column;
-  }
-  .walk-status {
-    margin-right: 1rem;
-    @include bp(s) {
-      margin-right: 0;
-    }
-  }
-}
-
-.post-list-footer {
-  padding: 1rem;
-  @include bp(m) {
-    padding: 2rem;
   }
 }
 
