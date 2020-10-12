@@ -8,7 +8,6 @@ const config = {
   speed: 0.00023,
   slope: 0.3,
   stackCount: 4,
-  lineWidth: window.innerHeight * .22,
 };
 
 let points = [];
@@ -60,16 +59,22 @@ function animateLine() {
   path.setAttribute("d", generatePathString(points));
 }
 
-function initLine(cb) {
+function initNoise() {
+  noise.seed(Math.random());
+}
+
+function setupLineSVG(cb) {
   let svgEl = document.querySelector(".line");
   w = window.innerWidth;
   h = window.innerHeight;
   svgEl.setAttribute("width", w);
   svgEl.setAttribute("height", h);
-
-  noise.seed(Math.random());
-
+  config.lineWidth = (h * w) * .00013
+  while (svgEl.lastElementChild) {
+    svgEl.removeChild(svgEl.lastElementChild);
+  }
   // Init points array
+  points = []
   for (let i = 0; i < config.pointCount + 2; i++) {
     let x = ((w + 200) / config.pointCount) * i - 100;
     points.push({
@@ -81,16 +86,14 @@ function initLine(cb) {
   path = document.createElementNS("http://www.w3.org/2000/svg", "path");
   path.setAttribute("d", generatePathString(points));
   path.setAttribute("class", "line");
-  
+
   let defs = document.createElementNS("http://www.w3.org/2000/svg", "defs");
   let cp = document.createElementNS("http://www.w3.org/2000/svg", "clipPath");
 
   cp.setAttribute("id", "cp");
   cp.insertAdjacentElement("afterbegin", path);
   defs.insertAdjacentElement("afterbegin", cp);
-  
   svgEl.insertAdjacentElement("afterbegin", defs);
-  animateLine();
 }
 
-export { initLine, animateLine };
+export { setupLineSVG, animateLine, initNoise };
