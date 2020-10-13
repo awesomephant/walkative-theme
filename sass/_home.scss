@@ -51,9 +51,10 @@
         transform: scale(1);
       }
     }
-    &:hover,
-    &:focus {
+    &:hover{
       text-decoration: underline;
+    }
+    &:focus {
       outline: 0;
     }
   }

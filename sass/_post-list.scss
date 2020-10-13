@@ -7,6 +7,8 @@
   display: flex;
   border-bottom: 1px solid $lightgray;
   flex-flow: column;
+  &.is-upcoming {
+  }
   @include bp(m) {
     flex-flow: row;
     padding: 2rem;
@@ -56,10 +58,14 @@
 
 .post-list-subtitle {
   font-size: var(--ms-0);
+  @include bp(m){
+    font-size: var(--ms-1);
+  }
   font-family: $sans;
   max-width: 20em;
   line-height: 1.15;
   margin-top: 0.25rem;
+  margin-bottom: 1rem;
 }
 
 .post-list-meta {
@@ -114,6 +120,25 @@
   a {
     @extend .btn;
   }
-  .page-number {
+}
+
+.tag-list {
+  display: flex;
+  font-family: $sans;
+  list-style: none;
+  font-size: var(--ms--1);
+  margin-left: 0 !important;
+  .tag {
+    color: rgba($black, .5);
+    margin-right: .5em;
+    a {
+      text-decoration: none;
+      &:hover, &:focus {
+        text-decoration: underline;
+      }
+    }
+    &:before {
+      content: "#"
+    }
   }
 }

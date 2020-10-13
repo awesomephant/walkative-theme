@@ -7,27 +7,23 @@
 <section class="home-tabs">
     <div class='home-tablist' role='tablist'>
         <button role='tab' aria-selected="true" aria-controls="walks-tab" id="walks">Walks and Events</button>
-        <button role='tab' aria-selected="false" aria-controls="blog-tab" id="blog">Articles</button>
+        <button role='tab' aria-selected="false" aria-controls="blog-tab" id="blog">Blog</button>
     </div>
     <section class="home-tab walks post-list" id="walks-tab" role="tabpanel" aria-labelledby="walks">
         {% for post in walks %}
-        <article class="post-list-item">
-            {% include '/partial/tease-walk.twig' %}
-        </article>
+        {% include '/partial/tease-walk.twig' %}
         {% endfor %}
         <footer class='post-list-footer'>
-            <a class='view-all' href="/walk/">View all events</a>
+            <a class='view-all' href="/walk/">View all walks and events</a>
         </footer>
     </section>
 
     <section class="home-tab blog post-list" id="blog-tab" role="tabpanel" aria-labelledby="blog" hidden="hidden">
         {% for post in home_posts %}
-        <article class="post-list-item">
-            {% include '/partial/tease-walk.twig' %}
-        </article>
+        {% include '/partial/tease-walk.twig' %}
         {% endfor %}
         <footer class='post-list-footer'>
-            <a class='view-all' href="/blog/">View all articles</a>
+            <a class='view-all' href="/blog/">View all blog posts</a>
         </footer>
     </section>
 </section>

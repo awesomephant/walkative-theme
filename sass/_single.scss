@@ -237,6 +237,7 @@
 
 .post-authors {
   list-style: none;
+  margin-left: 0 !important;
   font-weight: normal;
   .name {
     font-weight: 600;
@@ -244,7 +245,7 @@
 }
 
 .post-date {
-  font-family: $serif;
+  font-family: $sans;
   margin-bottom: 1em;
 }
 

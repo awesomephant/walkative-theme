@@ -1,0 +1,5 @@
+<ul class="tag-list">
+    {% for tag in post.terms %}
+    <li class="tag"><a href="{{tag.link}}">{{tag.title}}</a></li>
+    {% endfor %}
+</ul>

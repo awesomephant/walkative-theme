@@ -1,18 +1,22 @@
 {% block content %}
+{% set now = "now" | date("U") %}
+{% set start = post.start_date | date("U") %}
 
-<div class="post-list-meta">
-	{% if post.post_type == "walk"%}
-	{% include "partial/walk-status.twig"%} {{post.start_date | date("F d, Y")}}
-	{% else %}
-	{{post.date}}
-	{% endif %}
-</div>
-<div>
-	<a class='post-list-title' href="{{post.link}}">
-		<h3>{{ post.title }}</h3>
-	</a>
-	<p class='post-list-subtitle'>{{ post.subtitle }}</p>
-</div>
-
+<article class="post-list-item {% if now < start %}is-upcoming{% endif %}">
+	<div class="post-list-meta">
+		{% if post.post_type == "walk"%}
+		{% include "partial/walk-status.twig"%} {{post.start_date | date("F d, Y")}}
+		{% else %}
+		{{post.date}}
+		{% endif %}
+	</div>
+	<div>
+		<a class='post-list-title' href="{{post.link}}">
+			<h3>{{ post.title }}</h3>
+		</a>
+		<p class='post-list-subtitle'>{{ post.subtitle }}</p>
+		{% include "/partial/tags.twig" %}
+	</div>
+</article>
 
 {% endblock %}
