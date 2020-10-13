@@ -5,9 +5,11 @@
 <article class="post-type-{{ post.post_type }} article" id="post-{{ post.ID }}">
 	<header class='article-header'>
 		{% if post.post_type  == "walk"%}
-		{% include "partial/walk-status.twig"%}
+		<span class="post-date">
+			<a href="/walk">Walks and Events</a>
+		</span>
 		{% else %}
-		<span class="post-date">{{post.date}}</span>
+		<span class="post-date"><a href="/blog">Blog</a> — {{post.date}}</span>
 		{% endif %}
 		{% if post.thumbnail.src %}
 		<picture class="article-thumbnail">

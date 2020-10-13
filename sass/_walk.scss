@@ -46,6 +46,11 @@
   list-style: none;
   border-bottom: 1px solid lightgray;
   display: flex;
+  .btn {
+    display: inline-block;
+    margin-top: .5em;
+    padding: .3em .8em;
+  }
   &:last-of-type {
     border-bottom: 0;
     padding-bottom: 0;

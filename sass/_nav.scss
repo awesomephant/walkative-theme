@@ -28,6 +28,8 @@
         background-repeat: no-repeat;
         background-position: center;
         align-self: center;
+        position: relative;
+        top: 1px;
         display: inline-block;
         background-size: contain;
         background-image: url("./assets/arrow-top-right.svg");
@@ -48,10 +50,16 @@
   font-size: var(--ms--1);
   display: flex;
   align-self: flex-start;
+  padding-left: 2em;
   @include bp(m){
     align-self: flex-end;
   }
-  padding-left: 2em;
+  label {
+      cursor: pointer;
+      &:hover {
+          text-decoration: underline;
+      }
+  }
 
   [type="submit"] {
     background: url("./assets/search.svg");
