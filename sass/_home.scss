@@ -6,7 +6,6 @@
   }
   z-index: 100;
   overflow: hidden;
-  margin-top: 6rem;
   //  opacity: calc(var(--y) * 0.01);
 }
 
@@ -24,7 +23,10 @@
     appearance: none;
     font-family: $sans;
     width: 10em;
-    font-size: var(--ms-0);
+    font-size: var(--ms--1);
+    @include bp(s) {
+      font-size: var(--ms-0);
+    }
     text-align: left;
     cursor: pointer;
     font-weight: 400;
