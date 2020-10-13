@@ -1,5 +1,6 @@
 .article {
   background: white;
+  color: $black;
   grid-column: 1 / 13;
   padding: 1.5rem;
   @include bp(m){
