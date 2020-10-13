@@ -110,20 +110,19 @@ class WalkativeSite extends Timber\Site
 		$context['menu']  = new Timber\Menu();
 		$context['site']  = $this;
 		$context['isHome']  = is_home();
+		$context['search_form'] = get_search_form(false);
 
 		$posts_args = array(
 			"post_type" => "post",
 		);
 
 		$context['home_posts'] = Timber::get_posts($posts_args);
-
 		$walk_args = array(
 			"post_type" => "walk",
 			"orderby" => "meta_value_date",
 			"meta_key" => "start_date", // walk start
 			"order" => "ASC"
 		);
-
 		$context['walks'] = Timber::get_posts($walk_args);
 		return $context;
 	}
@@ -134,6 +133,15 @@ class WalkativeSite extends Timber\Site
 		add_theme_support('title-tag');
 		add_theme_support('post-thumbnails');
 		add_theme_support('menus');
+		add_theme_support(
+			'html5',
+			array(
+				'comment-form',
+				'comment-list',
+				'gallery',
+				'caption',
+			)
+		);
 	}
 	/** This is where you can add your own functions to twig.
 	 *

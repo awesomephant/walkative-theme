@@ -2,15 +2,20 @@
 
 {% block content %}
 <main class="archive-container">
-    <h2 class="archive-title">
-        {% if post.title %}{{post.title}}{% else %}{{title}}{% endif %}
+    <header class="post-list-header">
+        <h2 class="archive-title">
+           {% if post.title %}{{post.title}}{% else %}{{title}}{% endif %}{% if search_query%}<span
+                class="query">{{search_query}}</span>{% endif %}
+        </h2>
+        {% if posts.pagination.total > 1%}
         <span class="archive-page">
             {{posts.pagination.current}}/{{posts.pagination.total}}
         </span>
-    </h2>
+        {% endif %}
+    </header>
     {% for post in posts %}
     <article class="post-list-item">
-        {% include ['/partial/tease-'~post.post_type~'.twig', 'tease.twig'] %}
+        {% include ['/partial/tease-'~post.post_type~'.twig', '/partial/tease-post.twig'] %}
     </article>
     {% endfor %}
     {% include 'partial/pagination.twig' with { pagination: posts.pagination({show_all: false, mid_size: 3, end_size: 2}) } %}

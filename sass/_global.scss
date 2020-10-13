@@ -41,6 +41,11 @@ body {
   overflow-y: scroll;
 }
 
+::selection {
+  background: $black;
+  color: white;
+}
+
 .btn {
   text-decoration: none;
   background: black;

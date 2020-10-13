@@ -2,26 +2,32 @@
   background: white;
   border-radius: 3px;
   grid-column: 1 / 13;
-  @include bp(m){
+  @include bp(m) {
     grid-column: 2 / 12;
   }
   z-index: 100;
 }
 
+.post-list-header {
+  justify-content: space-between;
+  align-items: center;
+  display: flex;
+  padding: 2rem;
+  border-bottom: 1px solid lightgray;
+  @include bp(m) {
+    margin-bottom: 2rem;
+  }
+}
+
 .archive-title {
   font-weight: bold;
   font-family: $sans;
-  padding: 2rem;
-  border-bottom: 1px solid lightgray;
   font-size: var(--ms-2);
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  @include bp(m){
-    margin-bottom: 2rem;
-  }
-  @include bp(l){
+  @include bp(l) {
     font-size: var(--ms-3);
+  }
+  .query {
+    border-bottom: 1px solid black;
   }
 }
 
