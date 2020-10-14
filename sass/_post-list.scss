@@ -44,7 +44,6 @@
   font-size: var(--ms-2);
   @include bp(l) {
     font-size: var(--ms-3);
-    letter-spacing: -0.005em;
   }
   max-width: 20em;
   text-decoration: none;
@@ -57,13 +56,13 @@
 }
 
 .post-list-subtitle {
-  font-size: var(--ms-0);
-  @include bp(m){
-    font-size: var(--ms-1);
+  font-size: var(--ms-1);
+  @include bp(l){
+    font-size: var(--ms-2);
   }
-  font-family: $sans;
+  font-family: $serif;
   max-width: 20em;
-  line-height: 1.15;
+  line-height: 1.1;
   margin-top: 0.25rem;
   margin-bottom: 1rem;
 }

@@ -3,7 +3,7 @@
   color: $black;
   grid-column: 1 / 13;
   padding: 1.5rem;
-  @include bp(m){
+  @include bp(m) {
     padding: 2rem;
     padding-bottom: 10%;
     grid-column: 2 / 12;
@@ -12,31 +12,35 @@
   border-radius: 3px;
   position: relative;
   z-index: 100;
-  grid-template-columns: 1fr minmax(auto, 45rem) 1fr;
+  grid-template-columns: 1fr minmax(auto, 48rem) 1fr;
 }
 
 .article-title {
   line-height: 1;
   font-family: $serif;
-  text-align: center;
-  margin-bottom: 1em;
+  text-align: left;
+  margin-bottom: 1.5em;
   font-size: var(--ms-2);
-  letter-spacing: -.003em;
-  padding-top: 1em;
+  & + .article-intro {
+    margin-top: -2em;
+    @include bp(m){
+      margin-top: -1.8em;
+    }
+  }
   @include bp(m) {
-    font-size: var(--ms-3);
+    font-size: var(--ms-4);
   }
 }
 
 .article-header {
   display: flex;
   flex-flow: column;
-  align-items: center;
+  align-items: flex-start;
   grid-column: 1 / 4;
-  @include bp(l){
+  @include bp(l) {
     grid-column: 2 / 3;
   }
-  margin-bottom: 2em;
+  margin-bottom: 1em;
   .walk-status {
     margin-bottom: 1em;
   }
@@ -44,12 +48,12 @@
 
 .article-thumbnail {
   display: block;
-  margin-bottom: 2rem;
-
+  margin-bottom: .5rem;
   mix-blend-mode: multiply;
   display: flex;
   img {
-    max-height: 40vh;
+    display: block;
+    max-height: 50vh;
     width: auto;
     max-width: 100%;
   }
@@ -59,13 +63,14 @@
 }
 
 .article-intro {
-  font-size: var(--ms-1);
-  margin-bottom: 1rem;
+  font-size: var(--ms-2);
   margin-top: -1em;
-  font-family: $sans;
-  text-align: center;
-  line-height: 1.1;
+  font-family: $serif;
+  line-height: 1;
   font-weight: 500;
+  @include bp(l){
+    font-size: var(--ms-3);
+  }
 }
 .article-meta {
   font-family: $sans;
@@ -91,7 +96,8 @@
   h6,
   ul,
   ol,
-  p, [class*=wp-block] {
+  p,
+  [class*="wp-block"] {
     grid-column: 2 / 3;
   }
   p {
@@ -128,22 +134,11 @@
     grid-column: 2 / 3;
   }
   .wp-block-quote {
-    margin-bottom: 1rem;
-    margin-top: 1rem;
-    font-style: normal;
-    line-height: 1.19;
     margin-left: 4em;
     width: calc(100% - 4em);
-    position: relative;
-    &:before {
-      position: absolute;
-      height: 98%;
-      width: 1.5em;
-      top: 0.2em;
-      left: -2.5rem;
-      background: url("./assets/pattern.png");
-      background-size: 4px;
-      mix-blend-mode: multiply;
+    margin-bottom: .5em;
+    p {
+      margin-bottom: 0.2em;
     }
     em {
       font-style: normal;
@@ -154,7 +149,6 @@
       font-family: $sans;
       font-weight: normal;
       display: block;
-      margin-top: 0.5rem;
     }
   }
   .wp-block-verse {
@@ -258,18 +252,18 @@
   border-radius: 5px;
   font-size: var(--ms--1);
   input {
-    padding: .5rem 1rem; 
+    padding: 0.5rem 1rem;
     border-radius: 3px;
     border: 1px solid lightgray;
   }
   label {
-    margin-bottom: .5rem;
+    margin-bottom: 0.5rem;
     display: block;
-    letter-spacing: .005em;
+    letter-spacing: 0.005em;
     max-width: 25em;
   }
   .email {
-    margin-right: .5rem;
+    margin-right: 0.5rem;
     flex-basis: 20rem;
   }
   .scroll {
@@ -277,6 +271,6 @@
   }
   .button {
     @extend .btn;
-    padding: .5rem 1rem; 
+    padding: 0.5rem 1rem;
   }
 }

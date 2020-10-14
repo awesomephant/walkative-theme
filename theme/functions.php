@@ -28,13 +28,19 @@ function walkative_remove_unused_scripts()
 	wp_deregister_style('dashicons');
 }
 
-function walkative_add_walks_to_query( $query ) {
-    if ( $query->is_tag() && $query->is_main_query() ) {
-        $query->set( 'post_type', array( 'post', 'walk' ) );
-    }
-    if ( $query->is_category() && $query->is_main_query() ) {
-        $query->set( 'post_type', array( 'post', 'walk' ) );
-    }
+function walkative_add_walks_to_query($query)
+{
+	if ($query->is_post_type_archive() && $query->is_main_query()) {
+		$query->set('orderby', "meta_value");
+		$query->set('meta_key', "start_date");
+		$query->set('order', "DESC");
+	}
+	if ($query->is_tag() && $query->is_main_query()) {
+		$query->set('post_type', array('post', 'walk'));
+	}
+	if ($query->is_category() && $query->is_main_query()) {
+		$query->set('post_type', array('post', 'walk'));
+	}
 }
 
 function walkative_allowed_block_types($allowed_block_types)
@@ -67,7 +73,7 @@ class WalkativeSite extends Timber\Site
 		add_action('init', array($this, 'register_taxonomies'));
 		add_filter('allowed_block_types', 'walkative_allowed_block_types');
 		add_action('wp_print_styles', 'walkative_remove_unused_scripts');
-		add_action( 'pre_get_posts', "walkative_add_walks_to_query" );
+		add_action('pre_get_posts', "walkative_add_walks_to_query");
 
 		remove_action('wp_head', 'print_emoji_detection_script', 7);
 		remove_action('wp_print_styles', 'print_emoji_styles');
@@ -130,9 +136,9 @@ class WalkativeSite extends Timber\Site
 		$context['home_posts'] = Timber::get_posts($posts_args);
 		$walk_args = array(
 			"post_type" => "walk",
-			"orderby" => "meta_value_date",
+			"orderby" => "meta_value",
 			"meta_key" => "start_date", // walk start
-			"order" => "ASC"
+			"order" => "DESC"
 		);
 		$context['walks'] = Timber::get_posts($walk_args);
 		return $context;

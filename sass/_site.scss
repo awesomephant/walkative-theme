@@ -21,7 +21,7 @@
   flex-flow: column-reverse;
   font-family: $serif;
   grid-column: 1 / 13;
-  opacity: calc(1.1 - var(--y) * .0016);
+  opacity: calc(1.1 - var(--y) * 0.0016);
   padding-top: 1rem;
   font-size: var(--ms-1);
   @include bp(m) {
@@ -33,9 +33,10 @@
     font-family: $sans;
     font-size: 0.91em;
     font-weight: 600;
+    text-decoration: none;
     &:hover,
     &:focus {
-      text-decoration: none;
+      text-decoration: underline;
     }
   }
   p {

@@ -5,26 +5,24 @@
 <article class="post-type-{{ post.post_type }} article" id="post-{{ post.ID }}">
 	<header class='article-header'>
 		{% if post.post_type  == "walk"%}
-		{% set now = "now" | date("U") %}
-		{% set start = post.start_date | date("U") %}
-		{% if now < start %}
-		<span class="post-date">
-			Upcoming Walk
-		</span>
-		{% else %}
 		<span class="post-date">
 			<a href="/walk">Walks and Events</a>
 		</span>
-		{% endif %}
 		{% else %}
 		<span class="post-date"><a href="/blog">Blog</a> — {{post.date}}</span>
 		{% endif %}
 		{% if post.thumbnail.src %}
-		<picture class="article-thumbnail">
-			<source srcset="{{ post.thumbnail.src|resize(800)|towebp }}" type="image/webp">
-			<source srcset="{{ post.thumbnail.src|resize(800)|tojpg }}" type="image/jpeg">
-			<img src="{{ post.thumbnail.src|resize(800)|tojpg }}" alt="{{ post.title }}">
-		</picture>
+		<div class="article-thumbnail">
+			{% if ".gif" in post.thumbnail.src %}
+			<img src="{{ post.thumbnail.src }}" alt="{{ post.title }}">
+			{% else %}
+			<picture>
+				<source srcset="{{ post.thumbnail.src|resize(800)|towebp }}" type="image/webp">
+				<source srcset="{{ post.thumbnail.src|resize(800)|tojpg }}" type="image/jpeg">
+				<img src="{{ post.thumbnail.src|resize(800)|tojpg }}" alt="{{ post.title }}">
+			</picture>
+			{% endif %}
+		</div>
 		{% endif %}
 		<h2 class="article-title">{{ post.title }}</h2>
 		{% if post.subtitle %}
