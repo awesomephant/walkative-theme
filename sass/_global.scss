@@ -57,7 +57,7 @@ body {
   border: 0;
   font-size: var(--ms--1);
   &:hover, &:focus {
-    text-decoration: none;
-    background: lighten($black, 10);
+    text-decoration: underline;
+    background: lighten($black, 5);
   }
 }

@@ -45,4 +45,8 @@
 
 .view-all {
   font-family: $sans;
+  text-decoration: none;
+  &:hover {
+    text-decoration: underline;
+  }
 }

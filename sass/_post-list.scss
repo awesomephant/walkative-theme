@@ -42,7 +42,7 @@
 .post-list-title {
   font-family: $serif;
   font-size: var(--ms-2);
-  @include bp(l) {
+  @include bp(m) {
     font-size: var(--ms-3);
   }
   max-width: 20em;

@@ -1,6 +1,7 @@
 .site-pattern {
   background: black;
   background-size: cover;
+  background-position: center;
   background-repeat: no-repeat;
   width: 100vw;
   height: 100vh;
@@ -13,7 +14,7 @@
 }
 
 .site-header {
-  padding-bottom: 10rem;
+  padding-bottom: 6rem;
   width: 100%;
   display: flex;
   top: 0;

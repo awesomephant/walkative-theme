@@ -16,7 +16,7 @@
     font-size: var(--ms--1);
     display: flex;
     letter-spacing: 0.02em;
-    &.current_page_item {
+    &.current_page_item, &.current-menu-item {
       font-weight: bold;
     }
     &.external {
