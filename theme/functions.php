@@ -60,6 +60,7 @@ function walkative_allowed_block_types($allowed_block_types)
 		'core/instagram',
 		'core/vimeo',
 		'core/verse',
+		'core/freeform',
 	);
 }
 class WalkativeSite extends Timber\Site

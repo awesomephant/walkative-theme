@@ -1,8 +1,8 @@
 {% set now = "now" | date("U") %}
 {% set start = post.start_date | date("U") %}
-
-<details class="walk-data" {% if now < start %}open{% endif %}>
-    <summary>Walk Information</summary>
+{% if now < start %}
+<details class="walk-data" open>
+    <summary>Information</summary>
     <ul>
         <li class="walk-data-item">
             <em>Date</em>
@@ -35,3 +35,4 @@
         {% endif %}
     </ul>
 </details>
+{% endif %}

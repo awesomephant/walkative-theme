@@ -23,6 +23,7 @@
     appearance: none;
     font-family: $sans;
     width: 10em;
+    color: $black;
     font-size: var(--ms--1);
     @include bp(s) {
       font-size: var(--ms-0);
@@ -30,26 +31,8 @@
     text-align: left;
     cursor: pointer;
     font-weight: 400;
-    &:before {
-      content: "";
-      background: currentColor;
-      width: 0.5em;
-      height: 0.5em;
-      display: inline-block;
-      border-radius: 100%;
-      margin-right: 0.5em;
-      position: relative;
-      top: -0.1em;
-      opacity: 0;
-      transition: $fast;
-      transform: scale(0);
-    }
     &[aria-selected="true"] {
       font-weight: bold;
-      &:before {
-        opacity: 1;
-        transform: scale(1);
-      }
     }
     &:hover{
       text-decoration: underline;

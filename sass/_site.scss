@@ -9,7 +9,7 @@
   clip-path: url(#cp);
   pointer-events: none;
   mix-blend-mode: multiply;
-  //  filter: grayscale(0) blur(3px) brightness(1.1);
+  filter: blur(25px);
 }
 
 .site-header {
@@ -29,9 +29,12 @@
     padding-top: 2rem;
     grid-column: 2 / 12;
   }
+  @include bp(l) {
+    grid-column: 2 / 11;
+  }
   a {
     font-family: $sans;
-    font-size: 0.91em;
+    font-size: 0.89em;
     font-weight: 600;
     text-decoration: none;
     &:hover,

@@ -60,7 +60,7 @@
   @include bp(l){
     font-size: var(--ms-2);
   }
-  font-family: $serif;
+  font-family: $sans;
   max-width: 20em;
   line-height: 1.1;
   margin-top: 0.25rem;
@@ -118,26 +118,5 @@
   }
   a {
     @extend .btn;
-  }
-}
-
-.tag-list {
-  display: flex;
-  font-family: $sans;
-  list-style: none;
-  font-size: var(--ms--1);
-  margin-left: 0 !important;
-  .tag {
-    color: rgba($black, .5);
-    margin-right: .5em;
-    a {
-      text-decoration: none;
-      &:hover, &:focus {
-        text-decoration: underline;
-      }
-    }
-    &:before {
-      content: "#"
-    }
   }
 }

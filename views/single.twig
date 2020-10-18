@@ -1,28 +1,23 @@
 {% extends "base.twig" %}
 
 {% block content %}
+{% set now = "now" | date("U") %}
+{% set start = post.start_date | date("U") %}
 {% set df = "Ymd\\THi"%}
 <article class="post-type-{{ post.post_type }} article" id="post-{{ post.ID }}">
+	{% include "partial/post-sidebar.twig"%}
 	<header class='article-header'>
 		{% if post.post_type  == "walk"%}
 		<span class="post-date">
 			<a href="/walk">Walks and Events</a>
+			{% if now < start %}
+			– <em>Upcoming</em>
+			{%else %}
+			– <span>Archive</span>
+			{% endif %}
 		</span>
 		{% else %}
 		<span class="post-date"><a href="/blog">Blog</a> — {{post.date}}</span>
-		{% endif %}
-		{% if post.thumbnail.src %}
-		<div class="article-thumbnail">
-			{% if ".gif" in post.thumbnail.src %}
-			<img src="{{ post.thumbnail.src }}" alt="{{ post.title }}">
-			{% else %}
-			<picture>
-				<source srcset="{{ post.thumbnail.src|resize(800)|towebp }}" type="image/webp">
-				<source srcset="{{ post.thumbnail.src|resize(800)|tojpg }}" type="image/jpeg">
-				<img src="{{ post.thumbnail.src|resize(800)|tojpg }}" alt="{{ post.title }}">
-			</picture>
-			{% endif %}
-		</div>
 		{% endif %}
 		<h2 class="article-title">{{ post.title }}</h2>
 		{% if post.subtitle %}
@@ -34,29 +29,6 @@
 		{% include "partial/walk-data.twig"%}
 		{% endif %}
 		{{post.content}}
-		<aside class="article-meta">
-			{% if post.authors %}
-			<ul class="post-authors">
-				{% for author in post.meta('authors') %}
-				<li>
-					{% set people = author.name|split(',')%}
-					{% if people | length == 1%}
-					<span class='role'>{{author.role}} by</span> <span class="name">{{people[0]}}</span>
-					{% elseif people | length == 2%}
-					<span class='role'>{{author.role}} by</span> <span class='name'>{{people[0]}}</span> and <span
-						class="name">{{people[1]}}</span>
-					{% elseif people | length > 2%}
-					{{author.role}} by {% for p in people %}{{p}},{%endfor%}
-					{% endif %}
-				</li>
-				{% endfor %}
-			</ul>
-			{% else %}
-			<span>By</span><a href="{{post.author.path}}"> {{ post.author.name }} </a><span>&bull;</span> <time
-				datetime="{{ post.date|date('Y-m-d H:i:s') }}">{{ post.date }}</time>
-			{%endif%}
-		</aside>
-		{% include "/partial/tags.twig" %}
 	</main>
 	{% include "/partial/newsletter-form.twig"%}
 </article>

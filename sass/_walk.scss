@@ -2,7 +2,6 @@
   font-family: $sans;
   border-radius: 3px;
   line-height: 1.2;
-  max-width: 30rem;
   padding: 0;
   margin-top: 0rem;
   margin-bottom: 1rem;
@@ -17,7 +16,7 @@
   summary {
     padding: 0.5rem 0;
     cursor: pointer;
-    font-weight: bold;
+    font-weight: normal;
     &:hover {
       text-decoration: underline;
     }
