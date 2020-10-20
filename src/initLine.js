@@ -69,7 +69,7 @@ function setupLineSVG(cb) {
   h = window.innerHeight;
   svgEl.setAttribute("width", w);
   svgEl.setAttribute("height", h);
-  config.lineWidth = (h * w) * .00013
+  config.lineWidth = (h * w) * .00008
   while (svgEl.lastElementChild) {
     svgEl.removeChild(svgEl.lastElementChild);
   }

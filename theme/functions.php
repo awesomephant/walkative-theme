@@ -36,10 +36,10 @@ function walkative_add_walks_to_query($query)
 		$query->set('order', "DESC");
 	}
 	if ($query->is_tag() && $query->is_main_query()) {
-		$query->set('post_type', array('post', 'walk'));
+		$query->set('post_type', array('post', 'event'));
 	}
 	if ($query->is_category() && $query->is_main_query()) {
-		$query->set('post_type', array('post', 'walk'));
+		$query->set('post_type', array('post', 'event'));
 	}
 }
 
@@ -84,35 +84,6 @@ class WalkativeSite extends Timber\Site
 	}
 	public function register_post_types()
 	{
-		$labels = [
-			"name" => __("Walks and Events", "custom-post-type-ui"),
-			"singular_name" => __("Event", "custom-post-type-ui"),
-		];
-
-		$args = [
-			"label" => __("Walks", "custom-post-type-ui"),
-			"labels" => $labels,
-			"description" => "",
-			"public" => true,
-			"publicly_queryable" => true,
-			"show_ui" => true,
-			"show_in_rest" => true,
-			"rest_base" => "",
-			"rest_controller_class" => "WP_REST_Posts_Controller",
-			"has_archive" => true,
-			"show_in_menu" => true,
-			"show_in_nav_menus" => true,
-			"delete_with_user" => false,
-			"exclude_from_search" => false,
-			"capability_type" => "post",
-			"map_meta_cap" => true,
-			"hierarchical" => false,
-			"rewrite" => ["slug" => "walk", "with_front" => true],
-			"query_var" => true,
-			"supports" => ["title", "editor", "author", "thumbnail"],
-			"taxonomies" => ["post_tag"],
-		];
-		register_post_type("walk", $args);
 	}
 	/** This is where you can register custom taxonomies. */
 	public function register_taxonomies()
@@ -136,12 +107,35 @@ class WalkativeSite extends Timber\Site
 
 		$context['home_posts'] = Timber::get_posts($posts_args);
 		$walk_args = array(
-			"post_type" => "walk",
+			"post_type" => "event",
 			"orderby" => "meta_value",
 			"meta_key" => "start_date", // walk start
 			"order" => "DESC"
 		);
 		$context['walks'] = Timber::get_posts($walk_args);
+
+		$current_cs = array(
+			"post_type" => "contributor",
+			"meta_query" => array(
+				array(
+					"key" => "current",
+					"value" => 1,
+					"compare" => "="
+				)
+			)
+		);
+		$past_cs = array(
+			"post_type" => "contributor",
+			"meta_query" => array(
+				array(
+					"key" => "current",
+					"value" => 0,
+					"compare" => "="
+				)
+			)
+		);
+		$context['current_contributors'] = Timber::get_posts($current_cs);
+		$context['past_contributors'] = Timber::get_posts($past_cs);
 		return $context;
 	}
 

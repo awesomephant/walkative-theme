@@ -17,7 +17,7 @@
   border-radius: 3px;
   position: relative;
   z-index: 100;
-  grid-template-columns: 1fr minmax(auto, 45rem) 1fr;
+  grid-template-columns: 1fr minmax(auto, 43rem) 1fr;
 }
 
 .tag-list {
@@ -47,9 +47,11 @@
   font-family: $serif;
   text-align: left;
   margin-bottom: 2.5rem;
-  font-size: var(--ms-4);
+  font-size: var(--ms-3);
+  letter-spacing: -.01em;
   @include bp(m) {
     margin-bottom: 3rem;
+    font-weight: normal;
     font-size: var(--ms-4);
   }
 }
@@ -70,6 +72,9 @@
   .walk-status {
     margin-bottom: 1em;
   }
+  .post-thumbnail {
+    max-height: 26rem;
+  }
 }
 
 .article-intro {
@@ -87,7 +92,7 @@
   font-size: var(--ms-0);
   hyphens: auto;
   display: contents;
-  letter-spacing: 0.02em;
+  letter-spacing: 0.021em;
   line-height: 1.3;
 
   h1,
@@ -103,7 +108,10 @@
     grid-column: 2 / 3;
   }
   p {
-    margin-bottom: 1.2em;
+    margin-bottom: 1em;
+  }
+  strong {
+    font-weight: bold;
   }
   ul,
   ol {
@@ -157,11 +165,14 @@
   }
   .wp-block-image {
     margin-top: 2rem;
-    margin-bottom: 2rem;
     grid-column: 1 / 4;
     display: flex;
     flex-flow: column;
     align-items: center;
+    margin-bottom: 0rem;
+    @include bp(m){
+      margin-bottom: 2rem;
+    }
     &:first-child {
       margin-top: 0;
       grid-column: 2 / 3;
@@ -248,7 +259,7 @@
   margin-left: 0 !important;
   font-weight: normal;
   .name {
-    font-style: italic;
+    font-weight: bold;
     white-space: nowrap;
   }
 }
@@ -256,20 +267,22 @@
 .post-sidebar {
   grid-column: 1 / 4;
   margin-bottom: 1rem;
+  display: flex;
+  flex-wrap: wrap;
   @include bp(m) {
-    grid-column: 2 / 4;
+    grid-column: 2 / 3;
   }
   @include bp(l) {
     margin-bottom: 0;
     grid-column: 1 / 2;
     justify-self: center;
+    flex-flow: column;
     padding-right: 2rem;
   }
   padding-top: 0.5rem; //optical correction
   font-size: var(--ms--1);
   grid-row: 2;
   font-family: $sans;
-  max-width: 12rem;
   .post-authors,
   .date {
     display: block;
@@ -279,8 +292,13 @@
 
 .post-date {
   display: block;
-  margin-bottom: 1em;
+  margin-bottom: 2em;
   font-family: $sans;
+  font-size: var(--ms--1);
+  @include bp(m){
+    margin-bottom: 1em;
+    font-size: var(--ms-0);
+  }
   em {
     font-style: normal;
     font-weight: bold;

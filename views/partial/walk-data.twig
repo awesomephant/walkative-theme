@@ -1,29 +1,30 @@
 {% set now = "now" | date("U") %}
 {% set start = post.start_date | date("U") %}
 {% if now < start %}
-<details class="walk-data" open>
-    <summary>Information</summary>
+<aside class="walk-data">
     <ul>
         <li class="walk-data-item">
             <em>Date</em>
             <p>
                 <span>{{post.start_date | date("F d, Y") }}</span>
-                <span>{{post.start_date | date('h:ia')}} – {{post.end_date | date('h:ia')}}</span>
+                <span>{{post.start_date | date('h:ia')}} – {{post.end_date | date('h:ia')}} (London Time)</span>
                 {% if now < start %}
-                <a class='btn' target='_blank'
+                <a class='' target='_blank'
                     href="https://calendar.google.com/calendar/r/eventedit?text={{post.title | url_encode}}&dates={{post.start_date |date(df)}}/{{post.end_date | date(df)}}&location={{post.location | url_encode}}&details={{post.content | url_encode}}">Add
                     to Google Calendar</a>
                 {% endif %}
             </p>
 
         </li>
+        {% if post.location %}
         <li class="walk-data-item">
             <em>Meeting Point</em>
             <p>{{post.location}}</p>
         </li>
+        {% endif %}
         {% if post.tickets %}
         <li class="walk-data-item">
-            <em>Tickets</em>
+            <em>RSVP</em>
             <p><a href="{{post.tickets.url}}">{{post.tickets.title}}</a></p>
         </li>
         {% endif %}
@@ -34,5 +35,5 @@
         </li>
         {% endif %}
     </ul>
-</details>
+</aside>
 {% endif %}

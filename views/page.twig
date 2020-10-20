@@ -9,6 +9,19 @@
 		<main class="article-content">
 			{{post.content}}
 		</main>
+		{% if post.title == "About" %}
+		<section class="contributors">
+			<h2>Contributors</h2>
+			<h3>Current</h3>
+			{% for c in current_contributors %}
+			{% include "partial/contributor.twig" with {"contributor": c} %}
+			{% endfor %}
+			<h3>Past</h3>
+			{% for c in past_contributors %}
+			{% include "partial/contributor.twig" with {"contributor": c} %}
+			{% endfor %}
+		</section>
+		{% endif %}
 	</section>
 </article>
 {% endblock %}

@@ -1,0 +1,22 @@
+.contributors {
+  grid-column: 2 / 3;
+  columns: 1;
+}
+.contributor {
+  font-family: $sans;
+  display: inline-block;
+  margin-bottom: 1rem;
+  font-size: var(--ms--1);
+  p {
+    display: inline;
+    hyphens: auto;
+  }
+  p + p {
+    display: block;
+    text-indent: 2em;
+  }
+}
+.contributor-title {
+  display: inline;
+  font-weight: bold;
+}

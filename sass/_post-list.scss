@@ -25,18 +25,10 @@
 
 .post-list-thumbnail {
   position: relative;
-  z-index: 100;
-  display: none;
-  margin-left: 1rem;
-  img,
-  picture {
-    filter: grayscale(1) blur(0px);
-    border-radius: 2px;
-    margin-bottom: 0.5rem;
-    height: 10rem;
-    width: auto;
-    display: block;
-  }
+  display: block;
+  height: 12rem;
+  border-radius: 3px;
+  margin-bottom: 1rem;
 }
 
 .post-list-title {

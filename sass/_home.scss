@@ -6,7 +6,7 @@
   }
   z-index: 100;
   overflow: hidden;
-  //  opacity: calc(var(--y) * 0.01);
+  opacity: calc(var(--y) * 0.01);
 }
 
 .home-tablist {
@@ -24,9 +24,9 @@
     font-family: $sans;
     width: 10em;
     color: $black;
-    font-size: var(--ms--1);
+    font-size: var(--ms-0);
     @include bp(s) {
-      font-size: var(--ms-0);
+      font-size: var(--ms-1);
     }
     text-align: left;
     cursor: pointer;
@@ -45,8 +45,9 @@
 
 .view-all {
   font-family: $sans;
-  text-decoration: none;
-  &:hover {
-    text-decoration: underline;
+  font-size: var(--ms-0);
+  @include bp(m){
+    margin-left: 30%;
+    font-size: var(--ms-1);
   }
 }

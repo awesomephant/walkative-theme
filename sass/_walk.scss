@@ -3,23 +3,12 @@
   border-radius: 3px;
   line-height: 1.2;
   padding: 0;
-  margin-top: 0rem;
-  margin-bottom: 1rem;
+  margin-bottom: 2rem;
   grid-column: 2 / 3;
-  font-size: var(--ms-0);
-  @include bp(m) {
-    font-size: var(--ms--1);
-  }
-  &[open] summary {
+  font-size: var(--ms--1);
+  h4 {
     border-bottom: 1px solid $lightgray;
-  }
-  summary {
     padding: 0.5rem 0;
-    cursor: pointer;
-    font-weight: normal;
-    &:hover {
-      text-decoration: underline;
-    }
   }
   ul {
     margin: 0;

@@ -4,13 +4,18 @@
 
 <article class="post-list-item {% if now < start %}is-upcoming{% endif %}">
 	<div class="post-list-meta">
-		{% if post.post_type == "walk"%}
+		{% if post.post_type == "event"%}
 		{% include "partial/walk-status.twig"%} {{post.start_date | date("F d, Y")}}
 		{% else %}
 		{{post.date}}
 		{% endif %}
 	</div>
 	<div>
+		{% if now < start %}
+		<a href="{{post.link}}">
+			<img alt='Thumbnail image for {{post.title}}' class='post-list-thumbnail' src="{{post.thumbnail | resize(500)}}" alt="">
+		</a>
+		{% endif %}
 		<a class='post-list-title' href="{{post.link}}">
 			<h3>{{ post.title }}</h3>
 		</a>

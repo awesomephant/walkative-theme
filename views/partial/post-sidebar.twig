@@ -5,6 +5,9 @@
     {% if now > start %}
     <span class='date'>{{post.start_date | date("F d, Y") }}</span>
     {% endif %}
+    {% if post.post_type == "event" %}
+    {% include "partial/walk-data.twig"%}
+    {% endif %}
     {% if post.authors %}
         <ul class="post-authors">
             {% for author in post.meta('authors') %}

@@ -7,9 +7,9 @@
 <article class="post-type-{{ post.post_type }} article" id="post-{{ post.ID }}">
 	{% include "partial/post-sidebar.twig"%}
 	<header class='article-header'>
-		{% if post.post_type  == "walk"%}
+		{% if post.post_type  == "event"%}
 		<span class="post-date">
-			<a href="/walk">Walks and Events</a>
+			<a href="/events">Walks and Events</a>
 			{% if now < start %}
 			– <em>Upcoming</em>
 			{%else %}
@@ -23,12 +23,19 @@
 		{% if post.subtitle %}
 		<p class="article-intro">{{post.subtitle}}</p>
 		{% endif %}
+		<img alt='Thumbnail image for {{post.title}}' class='post-thumbnail' src="{{post.thumbnail | resize(500)}}"
+			alt="">
 	</header>
 	<main class="article-content">
-		{% if post.post_type == "walk" %}
-		{% include "partial/walk-data.twig"%}
-		{% endif %}
 		{{post.content}}
+		<aside class="contributors">
+			{% if post.contributors %}
+			{% for id in post.contributors %}
+			{% set c = TimberPost(id)%}
+			{% include "/partial/contributor.twig" with {contributor: c}%}
+			{% endfor %}
+			{% endif %}
+		</aside>
 	</main>
 	{% include "/partial/newsletter-form.twig"%}
 </article>
