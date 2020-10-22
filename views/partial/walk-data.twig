@@ -7,7 +7,7 @@
             <em>Date</em>
             <p>
                 <span>{{post.start_date | date("F d, Y") }}</span>
-                <span>{{post.start_date | date('h:ia')}} – {{post.end_date | date('h:ia')}} (London Time)</span>
+                <span>{{post.start_date | date('h:ia')}} – {{post.end_date | date('h:ia')}} (UK)</span>
                 {% if now < start %}
                 <a class='' target='_blank'
                     href="https://calendar.google.com/calendar/r/eventedit?text={{post.title | url_encode}}&dates={{post.start_date |date(df)}}/{{post.end_date | date(df)}}&location={{post.location | url_encode}}&details={{post.content | url_encode}}">Add

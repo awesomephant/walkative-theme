@@ -4,6 +4,10 @@
 <article class="post-type-{{post.post_type}} article" id="post-{{post.ID}}">
 	<header class="article-header">
 		<h1 class="article-title">{{post.title}}</h1>
+		{% if post.subtitle %}
+		{% set s =  post.subtitle | length %}
+		<p class="article-intro {% if s > 40%}long{% endif %}">{{post.subtitle}}</p>
+		{% endif %}
 	</header>
 	<section class="article-content">
 		<main class="article-content">

@@ -4,7 +4,12 @@
 {% set now = "now" | date("U") %}
 {% set start = post.start_date | date("U") %}
 {% set df = "Ymd\\THi"%}
-<article class="post-type-{{ post.post_type }} article" id="post-{{ post.ID }}">
+{% set isEmpty = false %}
+{% if post.content == "" %}
+{% set isEmpty = true %}
+{% endif %}
+{{isEmpty}}
+<article class="post-type-{{ post.post_type }} article" data-isEmpty="{{isEmpty}}" id="post-{{ post.ID }}">
 	{% include "partial/post-sidebar.twig"%}
 	<header class='article-header'>
 		{% if post.post_type  == "event"%}
@@ -21,7 +26,8 @@
 		{% endif %}
 		<h2 class="article-title">{{ post.title }}</h2>
 		{% if post.subtitle %}
-		<p class="article-intro">{{post.subtitle}}</p>
+		{% set s =  post.subtitle | length %}
+		<p class="article-intro {% if s > 40%}long{% endif %}">{{post.subtitle}}</p>
 		{% endif %}
 		<img alt='Thumbnail image for {{post.title}}' class='post-thumbnail' src="{{post.thumbnail | resize(500)}}"
 			alt="">

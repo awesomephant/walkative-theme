@@ -1,9 +1,8 @@
 .archive-container {
-  background: white;
-  border-radius: 3px;
   grid-column: 1 / 13;
-  @include bp(m) {
-    grid-column: 2 / 12;
+  background: rgba(white, .98);
+  @include bp(m){
+    grid-column: 2 / 12;    
   }
   z-index: 100;
 }
@@ -12,9 +11,10 @@
   justify-content: space-between;
   align-items: center;
   display: flex;
-  padding: 2rem;
   border-bottom: 1px solid lightgray;
+  padding: 1rem;
   @include bp(m) {
+    padding: 2rem;
     margin-bottom: 2rem;
   }
 }
@@ -22,9 +22,9 @@
 .archive-title {
   font-weight: bold;
   font-family: $sans;
-  font-size: var(--ms-2);
+  font-size: var(--ms-1);
   @include bp(l) {
-    font-size: var(--ms-3);
+    font-size: var(--ms-2);
   }
   .query {
     border-bottom: 1px solid black;

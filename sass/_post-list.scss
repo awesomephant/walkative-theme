@@ -1,14 +1,11 @@
 .post-list {
   border-radius: $br;
-  background: white;
 }
 .post-list-item {
   padding: 1rem;
   display: flex;
   border-bottom: 1px solid $lightgray;
   flex-flow: column;
-  &.is-upcoming {
-  }
   @include bp(m) {
     flex-flow: row;
     padding: 2rem;
@@ -25,7 +22,7 @@
 
 .post-list-thumbnail {
   position: relative;
-  display: block;
+  display: none;
   height: 12rem;
   border-radius: 3px;
   margin-bottom: 1rem;
@@ -33,7 +30,12 @@
 
 .post-list-title {
   font-family: $serif;
-  font-size: var(--ms-2);
+  font-size: var(--ms-1);
+  font-weight: bold;
+  @include bp(s) {
+    font-weight: normal;
+    font-size: var(--ms-2);
+  }
   @include bp(m) {
     font-size: var(--ms-3);
   }
@@ -48,15 +50,16 @@
 }
 
 .post-list-subtitle {
-  font-size: var(--ms-1);
-  @include bp(l){
-    font-size: var(--ms-2);
+  font-size: var(--ms-0);
+  margin-bottom: .5rem;
+  @include bp(m){
+    font-size: var(--ms-1);
+    margin-bottom: 1rem;
   }
   font-family: $sans;
   max-width: 20em;
   line-height: 1.1;
   margin-top: 0.25rem;
-  margin-bottom: 1rem;
 }
 
 .post-list-meta {
