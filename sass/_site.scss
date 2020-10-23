@@ -1,5 +1,5 @@
 .site-pattern {
-  background: black;
+  background: linear-gradient(to right, black 0%, rgba(black, .9) 40%, black 80%);
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -9,6 +9,7 @@
   position: fixed;
   clip-path: url(#cp);
   pointer-events: none;
+  z-index: -1000;
   mix-blend-mode: multiply;
   filter: blur(25px);
 }
@@ -23,10 +24,13 @@
   font-size: var(--ms-0);
   padding-bottom: 1rem;
   padding-top: .5rem;
+  @include bp(s) {
+    font-size: var(--ms-1);
+  }
   @include bp(m) {
+    font-size: var(--ms-2);
     padding-top: 1rem;
     padding-bottom: 4rem;
-    font-size: var(--ms-2);
     padding-top: 2rem;
     grid-column: 2 / 12;
     padding-bottom: 10vh;
@@ -34,9 +38,11 @@
   @include bp(l) {
     grid-column: 2 / 11;
   }
+  p > a {
+    font-size: 0.94em;
+  }
   a {
     font-family: $sans;
-    font-size: 0.89em;
     font-weight: 600;
     text-decoration: none;
     &:hover,
@@ -45,11 +51,14 @@
     }
   }
   p {
-    padding-top: 1rem;
     max-width: 30em;
     display: none;
     .home & {
       display: block;
+    }
+    padding-top: .1em;
+    @include bp(m){
+      padding-top: .5em;
     }
     @include bp(s){
       display: block;
@@ -70,14 +79,17 @@
   padding-bottom: 1rem;
   padding-top: 40vh;
   width: 100%;
+  position: relative;
+  z-index: 1000;
+  color: lighten($black, 0);
+  font-family: $sans;
+  line-height: 1.2;
+  font-size: var(--ms--1);
   @include bp(m) {
     grid-column: 2 / 12;
     padding-top: 30vh;
     padding-bottom: 4rem;
   }
-  font-family: $sans;
-  line-height: 1.2;
-  font-size: var(--ms--1);
   nav {
     margin-bottom: 1em;
     max-width: 35em;

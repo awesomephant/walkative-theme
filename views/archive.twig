@@ -1,7 +1,7 @@
 {% extends "base.twig" %}
 
 {% block content %}
-<main class="archive-container">
+<main class="archive-container">    
     <header class="post-list-header">
         <h2 class="archive-title">
             {% if post.title %}{{post.title}}{% else %}{{title}}{% endif %}{% if search_query%}<span

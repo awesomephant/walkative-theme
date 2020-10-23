@@ -17,7 +17,7 @@ if (!class_exists('Timber')) {
 	return;
 }
 
-Timber::$dirname = array('../views');
+Timber::$dirname = array('./views');
 Timber::$autoescape = false;
 
 function walkative_remove_unused_scripts()

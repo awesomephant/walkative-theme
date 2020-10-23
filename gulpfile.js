@@ -18,7 +18,7 @@ function css() {
         cascade: false,
       })
     )
-    .pipe(dest("./theme/"))
+    .pipe(dest("./"))
     .pipe(browserSync.stream());
 }
 
@@ -44,7 +44,7 @@ function js() {
 function bs() {
   browserSync.init({
     proxy: "walkative.test",
-    files: ["./views/**/*.twig", "./theme/**/*.php", "./theme/**/*.js"],
+    files: ["./views/**/*.twig", "./*.php", "./style.css"],
   });
 }
 

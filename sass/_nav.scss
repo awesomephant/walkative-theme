@@ -6,6 +6,7 @@
     font-size: var(--ms--1);
     columns: 2;
     @include bp(s){
+      font-size: var(--ms-0);
       columns: 1;
       flex-flow: row;
       display: flex;
@@ -19,7 +20,7 @@
     display: flex;
     line-height: 1.4;
     white-space: nowrap;
-    letter-spacing: 0.02em;
+    letter-spacing: 0.001em;
     &.home {
       column-span: all;
       @include bp(s){
@@ -39,7 +40,7 @@
         background-position: center;
         align-self: center;
         position: relative;
-        top: -1px;
+        top: 1px;
         display: inline-block;
         background-size: contain;
         background-image: url("./assets/arrow-top-right.svg");
@@ -57,7 +58,7 @@
 }
 
 .searchform {
-  font-size: var(--ms--1);
+  font-size: var(--ms-0);
   display: flex;
   align-self: flex-start;
   padding-left: 2em;
@@ -79,12 +80,12 @@
     background-size: contain;
     width: 1rem;
     height: 1rem;
-    align-self: center;
     margin-left: 0.5rem;
     cursor: pointer;
-    order: 4;
     opacity: 0;
     transition: $fast;
+    position: relative;
+    top: -5px;
   }
 
   [type="text"] {

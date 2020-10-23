@@ -1,12 +1,12 @@
 const noise = require("simplenoise");
 
 const config = {
-  pointCount: 150,
+  pointCount: 250,
   debug: true,
-  noiseAmplitude: 200,
-  noiseFrequency: 0.0008,
+  noiseAmplitude: 300,
+  noiseFrequency: 0.0005,
   speed: 0.00023,
-  slope: 0.3,
+  slope: 0.25,
   stackCount: 4,
 };
 
@@ -47,7 +47,7 @@ function animateLine() {
       noise.simplex2(points[i].currentX * config.noiseFrequency + offset, 3) *
         config.noiseAmplitude -
       points[i].currentX * config.slope +
-      (noise.simplex2(points[i].currentX * 0.005 + offset, 3) * 15 + 100);
+      (noise.simplex2(points[i].currentX * 0.003 + offset, 3) * 25 + 100);
 
     let adjacent = points[i + 1].currentX - points[i].currentX;
     let opposite = points[i + 1].currentY - points[i].currentY;

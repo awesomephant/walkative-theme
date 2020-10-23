@@ -3,7 +3,7 @@
   grid-column: 1 / 13;
   background: rgba(white, 1);
   @include bp(s) {
-    background: rgba(white, .96);
+    background: rgba(white, .97);
   }
   @include bp(m) {
     grid-column: 2 / 12;

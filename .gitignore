@@ -6,4 +6,4 @@ node_modules/
 dist/
 *.ai
 documentation/
-/theme/style.css
+./style.css
