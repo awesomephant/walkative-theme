@@ -1,0 +1,15 @@
+{% set s =  list | length %}
+{% if s == 1 %}
+<span class='name'>{{list[0]}}</span>
+{%endif%}
+{% if s == 2 %}
+<span class='name'>{{list[0]}}</span> and <span class="name"></span>{{list[1]}}</span>
+{%endif%}
+{% if s > 2 %}
+{% for i in range(0, s - 2) %}
+<span class="name">
+    {{list[i]}},
+</span>
+{% endfor %}
+and <span class="name">{{list[s-1]}}</span>
+{%endif%}

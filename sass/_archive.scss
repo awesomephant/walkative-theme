@@ -21,10 +21,10 @@
 
 .archive-title {
   font-weight: bold;
-  font-family: $sans;
-  font-size: var(--ms-1);
-  @include bp(l) {
-    font-size: var(--ms-2);
+  font-family: $compressed;
+  font-size: var(--ms-2);
+  @include bp(m) {
+    font-size: var(--ms-3);
   }
   .query {
     border-bottom: 1px solid black;
@@ -33,6 +33,9 @@
 
 .archive-page {
   font-weight: normal;
-  font-family: $sans;
+  font-family: $compressed;
   font-size: var(--ms-1);
+  @include bp(m){
+    font-size: var(--ms-2);
+  }
 }

@@ -5,7 +5,7 @@
   background-repeat: no-repeat;
   width: 110vw;
   height: 100vh;
-  left: -40px;
+  left: -5vw;
   position: fixed;
   clip-path: url(#cp);
   pointer-events: none;
@@ -18,13 +18,16 @@
   width: 100%;
   display: flex;
   top: 0;
-  flex-flow: column-reverse;
+  flex-flow: column;
   font-family: $serif;
-  grid-column: 1 / 12;
+  grid-column: 1 / 13;
   font-size: var(--ms-0);
   padding-bottom: 1rem;
   padding-top: .5rem;
+  color: $darkgray;
+
   @include bp(s) {
+    flex-flow: column-reverse;
     font-size: var(--ms-1);
   }
   @include bp(m) {
@@ -39,7 +42,7 @@
     grid-column: 2 / 11;
   }
   p > a {
-    font-size: 0.94em;
+    font-size: 1em;
   }
   a {
     font-family: $sans;
@@ -53,10 +56,11 @@
   p {
     max-width: 30em;
     display: none;
+    line-height: 1.15;
+    padding-top: .1em;
     .home & {
       display: block;
     }
-    padding-top: .1em;
     @include bp(m){
       padding-top: .5em;
     }
@@ -65,7 +69,7 @@
     }
   }
   svg {
-    width: 100vw;
+    width: 90%;
     pointer-events: none;
     position: absolute;
     path {

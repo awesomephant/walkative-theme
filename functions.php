@@ -43,6 +43,37 @@ function walkative_add_walks_to_query($query)
 	}
 }
 
+function walkative_add_custom_post_counts()
+{
+	$post_types = array('event', "contributor");
+	foreach ($post_types as $pt) :
+		$pt_info = get_post_type_object($pt);
+		$num_posts = wp_count_posts($pt);
+		$num = number_format_i18n($num_posts->publish);
+		$text = _n($pt_info->labels->singular_name, $pt_info->labels->name, intval($num_posts->publish)); // singular/plural text label for CPT
+		echo '<li class="page-count ' . $pt_info->name . '-count"><a href="edit.php?post_type=' . $pt . '">' . $num . ' ' . $text . '</a></li>';
+	endforeach;
+}
+
+function walkative_event_column($column, $post_id)
+{
+	if ('subtitle' === $column) {
+		echo get_post_meta($post_id, "subtitle", true);
+	}
+}
+
+function walkative_filter_posts_columns($columns)
+{
+	$columns = array(
+		'cb' => $columns['cb'],
+		'title' => __('Title'),
+		'subtitle' => __('Subtitle'),
+		'date' => __('Date'),
+		'tags' => __('Tags'),
+	);
+	return $columns;
+}
+
 function walkative_allowed_block_types($allowed_block_types)
 {
 	return array(
@@ -75,6 +106,10 @@ class WalkativeSite extends Timber\Site
 		add_filter('allowed_block_types', 'walkative_allowed_block_types');
 		add_action('wp_print_styles', 'walkative_remove_unused_scripts');
 		add_action('pre_get_posts', "walkative_add_walks_to_query");
+		add_action('dashboard_glance_items', 'walkative_add_custom_post_counts');
+
+		add_filter('manage_event_posts_columns', 'walkative_filter_posts_columns');
+		add_action('manage_event_posts_custom_column', 'walkative_event_column', 10, 2);
 
 		remove_action('wp_head', 'print_emoji_detection_script', 7);
 		remove_action('wp_print_styles', 'print_emoji_styles');

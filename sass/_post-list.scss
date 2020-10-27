@@ -29,12 +29,12 @@
 }
 
 .post-list-title {
-  font-family: $serif;
-  font-size: var(--ms-1);
+  font-size: var(--ms-2);
   font-weight: bold;
+  font-family: $compressed;
   @include bp(s) {
+    font-family: $serif;
     font-weight: normal;
-    font-size: var(--ms-2);
   }
   @include bp(m) {
     font-size: var(--ms-3);
@@ -54,7 +54,6 @@
   margin-bottom: .5rem;
   @include bp(m){
     font-size: var(--ms-1);
-    margin-bottom: 1rem;
   }
   font-family: $sans;
   max-width: 20em;
@@ -104,6 +103,11 @@
   flex-grow: 0;
   font-family: $sans;
   justify-content: flex-start;
+  @include bp(s){
+    font-size: var(--ms-3);
+    font-weight: bold;
+    font-family: $compressed;
+  }
   li {
     list-style: none;
     margin-right: .1em;
@@ -112,6 +116,5 @@
     display: none;
   }
   a {
-    @extend .btn;
   }
 }

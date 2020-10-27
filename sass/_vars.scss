@@ -22,21 +22,23 @@
 $green: rgb(0, 114, 0);
 $red: #f51803;
 $gray: rgb(144, 139, 132);
-$lightgray: rgb(238, 232, 223);
+$lightgray: rgb(233, 227, 221);
 $gold: rgb(124, 86, 25);
 $serif: TimesNewRoman, "Times New Roman", Times, Georgia, serif;
 $sans: "franklin-gothic-urw", "Arial", sans-serif;
+$compressed: "franklin-gothic-urw-comp", "Arial", sans-serif;
 $fast: 200ms;
-$black: rgb(14, 8, 1);
+$black: rgb(8, 6, 4);
+$darkgray: rgb(42, 33, 22);
 $br: 3px;
 :root {
   --fast: 250ms;
   --ratio: 1.3; // Major 3
-  --ms--1: .92rem;
+  --ms--1: .95rem;
   @include bp(m){
-    --ms--1: 1.15rem;
+    --ms--1: 1rem;
   }
-  --ms-0: clamp(1.12rem, 2.53vw, 1.4rem);
+  --ms-0: clamp(1.1rem, 2.53vw, 1.28rem);
   --ms-1: calc(var(--ms-0) * var(--ratio));
   --ms-2: calc(var(--ms-1) * var(--ratio));
   --ms-3: calc(var(--ms-2) * var(--ratio));

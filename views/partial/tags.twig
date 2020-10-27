@@ -1,5 +1,7 @@
 <ul class="tag-list">
     {% for tag in post.terms %}
+    {% if tag.taxonomy == "post_tag"%}
     <li class="tag"><a href="{{tag.link}}">{{tag.title}}</a></li>
+    {% endif %}
     {% endfor %}
 </ul>
